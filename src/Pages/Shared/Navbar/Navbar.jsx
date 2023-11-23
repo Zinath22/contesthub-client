@@ -1,12 +1,27 @@
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../providers/AuthProvider";
+import { useContext } from "react";
 
 
 const Navbar = () => {
 
+    const { user, logOut } = useContext(AuthContext)
+
+    const handleSignOut = () => {
+        logOut()
+          .then(() => {
+    
+          })
+          .catch((error) => {
+            console.error("Logout Error", error);
+          })
+      }
+
     const navOptions = <>
      
      <li><Link to="/">Home</Link></li>
-     <li><Link to="/login">Login</Link></li>
+
+     { user ? '' : <li><Link to="/login">Login</Link></li>}
         
     </>
     return (
@@ -29,12 +44,35 @@ const Navbar = () => {
     <ul className="menu menu-horizontal px-1">
       
       {navOptions}
+  
 
+  
     </ul>
+
+    {
+          user ? <div> <div className="dropdown dropdown-end">
+            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+              <div className="w-10 rounded-full">
+                <img src={user.photoURL? user.photoURL :''} />
+              </div>
+            </label>
+            <ul tabIndex={0} className="space-y-4 menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+              <li>{user?.email}</li>
+              <Link to={'/addfood'} ><li>Add Food</li></Link>
+              <Link to={'/myAddFoodItem'} ><li>My Add Food</li></Link>
+              <Link to={'/myOrder'} ><li>My ordered food</li></Link>
+
+              <li onClick={handleSignOut}><a>Logout</a></li>
+            </ul>
+          </div>
+
+          </div> : 
+          ''
+          }
   </div>
-  <div className="navbar-end">
-    <a className="btn">Button</a>
-  </div>
+
+  
+  
 </div>
         </>
     );
