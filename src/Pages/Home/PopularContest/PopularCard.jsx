@@ -1,7 +1,11 @@
 
+import { Link } from "react-router-dom";
+
 
 const PopularCard = ({item}) => {
-    const {contest_name, img,participants_count, description,category } = item;
+    const {_id, contest_name, img,participants_count, description,category } = item;
+
+   
 
     return (
         <div>
@@ -13,7 +17,7 @@ const PopularCard = ({item}) => {
     <h2 className="card-title">{participants_count}</h2>
     <p>{description}</p>
     <div className="card-actions">
-      <button className="btn btn-primary">Details</button>
+     <Link to={`/contestDetails/${_id}`}> <button className="btn btn-primary">Details</button></Link>
     </div>
   </div>
 </div>

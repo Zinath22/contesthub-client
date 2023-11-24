@@ -1,6 +1,6 @@
 [
     {
-      "_id": "1",
+      
       "contest_name": "Abstract Art Challenge",
       "img": "abstract_art.jpg",
       "participants_count": 50,
@@ -12,7 +12,7 @@
       "category": "popular"
     },
     {
-      "_id": "2",
+      
       "contest_name": "Tech Innovators Hackathon",
       "img": "hackathon.jpg",
       "participants_count": 80,
@@ -24,7 +24,7 @@
       "category": "popular"
     },
     {
-      "_id": "3",
+      
       "contest_name": "Culinary Delights Challenge",
       "img": "culinary_delights.jpg",
       "participants_count": 40,
@@ -36,7 +36,7 @@
       "category": "popular"
     },
     {
-      "_id": "4",
+     
       "contest_name": "Epic Nature Photography Contest",
       "img": "nature_photography.jpg",
       "participants_count": 60,
@@ -48,7 +48,7 @@
       "category": "popular"
     },
     {
-      "_id": "5",
+      
       "contest_name": "Music Fusion Challenge",
       "img": "music_fusion.jpg",
       "participants_count": 35,
@@ -60,7 +60,7 @@
       "category": "Music"
     },
     {
-      "_id": "6",
+      
       "contest_name": "Fashion Forward Design Competition",
       "img": "fashion_design.jpg",
       "participants_count": 70,
@@ -72,7 +72,7 @@
       "category": "popular"
     },
     {
-      "_id": "7",
+      
       "contest_name": "Mind-bending Puzzle Challenge",
       "img": "puzzle_challenge.jpg",
       "participants_count": 45,
@@ -84,7 +84,7 @@
       "category": "Games and Puzzles"
     },
     {
-      "_id": "8",
+     
       "contest_name": "Dance Fusion Showcase",
       "img": "dance_showcase.jpg",
       "participants_count": 55,
@@ -96,7 +96,7 @@
       "category": "Dance"
     },
     {
-      "_id": "9",
+      
       "contest_name": "Short Film Masterpiece Contest",
       "img": "short_film_contest.jpg",
       "participants_count": 25,
@@ -108,7 +108,7 @@
       "category": "Film and Video"
     },
     {
-      "_id": "10",
+     
       "contest_name": "Fitness Transformation Challenge",
       "img": "fitness_challenge.jpg",
       "participants_count": 65,

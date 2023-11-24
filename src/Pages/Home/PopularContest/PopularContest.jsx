@@ -6,7 +6,7 @@ import PopularCard from "./PopularCard";
 const PopularContest = () => {
     const [contest, setContest] = useState([]);
     useEffect( () => {
-        fetch('contest.json')
+        fetch('http://localhost:5000/contest')
         .then(res => res.json())
         .then(data => {
             const popularContest = data.filter(item => item.category === 'popular')

@@ -1,10 +1,9 @@
-
+import  { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
-// import { motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { AiOutlineArrowRight } from 'react-icons/ai';
-import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 const Jobs = () => {
   const [contests, setContests] = useState([]);
   const [business, setBusiness] = useState([]);
@@ -54,12 +53,11 @@ const Jobs = () => {
         <div className='w-[90%] p-4 mx-auto min-h-screen'>
           <TabPanel>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
-              {
-              business.map(contest => (
-                <div
+              {business.map(contest => (
+                <motion.div
                   key={contest._id}
                   className="container"
-                //   whileHover={{ scale: 1.2  }}
+                  whileHover={{ scale: 1.2  }}
                 >
                   <div className='border p-6 space-y-2 rounded bg-cyan-100 h-60 flex flex-col'>
                     <h2>Job Title: <span className='font-semibold'>{contest.jobTitle}</span></h2>
@@ -70,17 +68,17 @@ const Jobs = () => {
                       <button className='btn btn-accent text-white w-full '>Bid Now</button>
                     </Link>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </TabPanel>
           <TabPanel>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
               {medical.map(contest => (
-                <div
+                <motion.div
                   key={contest._id}
                   className="container"
-                //   whileHover={{ scale: 1.2}}
+                  whileHover={{ scale: 1.2}}
                 >
                   <div className='border p-6 space-y-2 rounded bg-cyan-100 h-60 flex flex-col'>
                     <h2>Job Title: <span className='font-semibold'>{contest.jobTitle}</span></h2>
@@ -91,17 +89,17 @@ const Jobs = () => {
                       <button className='btn btn-accent text-white w-full '>Bid Now</button>
                     </Link>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </TabPanel>
           <TabPanel>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
               {artical.map(contest => (
-                <div
+                <motion.div
                   key={contest._id}
                   className="container"
-                //   whileHover={{ scale: 1.2}}
+                  whileHover={{ scale: 1.2}}
                 >
                   <div className='border p-6 space-y-2 rounded bg-cyan-100 h-60 flex flex-col'>
                     <h2>Job Title: <span className='font-semibold'>{contest.jobTitle}</span></h2>
@@ -112,17 +110,17 @@ const Jobs = () => {
                       <button className='btn btn-accent text-white w-full '>Bid Now</button>
                     </Link>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </TabPanel>
           <TabPanel>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
               {gaming.map(contest => (
-                <div
+                <motion.div
                   key={contest._id}
                   className="container"
-                //   whileHover={{ scale: 1.2}}
+                  whileHover={{ scale: 1.2}}
                 >
                   <div className='border p-6 space-y-2 rounded bg-cyan-100 h-60 flex flex-col'>
                     <h2>Job Title: <span className='font-semibold'>{contest.jobTitle}</span></h2>
@@ -133,7 +131,7 @@ const Jobs = () => {
                       <button className='btn btn-accent text-white w-full '>Bid Now</button>
                     </Link>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </TabPanel>
