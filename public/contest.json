@@ -1,0 +1,123 @@
+[
+    {
+      "_id": "1",
+      "contest_name": "Abstract Art Challenge",
+      "img": "abstract_art.jpg",
+      "participants_count": 50,
+      "description": "Express your creativity with abstract art. Unleash your imagination and create unique pieces.",
+      "prize": "Cash prize of $500 and a featured exhibition",
+      "winner_name": "Alexandra Smith",
+      "winner_img": "alexandra_smith.jpg",
+      "deadline": "2023-12-15",
+      "category": "popular"
+    },
+    {
+      "_id": "2",
+      "contest_name": "Tech Innovators Hackathon",
+      "img": "hackathon.jpg",
+      "participants_count": 80,
+      "description": "Join the hackathon to develop innovative solutions. Showcase your coding skills and win exciting prizes.",
+      "prize": "Internship opportunities and tech gadgets",
+      "winner_name": "Ryan Johnson",
+      "winner_img": "ryan_johnson.jpg",
+      "deadline": "2023-11-30",
+      "category": "popular"
+    },
+    {
+      "_id": "3",
+      "contest_name": "Culinary Delights Challenge",
+      "img": "culinary_delights.jpg",
+      "participants_count": 40,
+      "description": "Cook up a storm and present your most delicious dish. Let your culinary skills shine.",
+      "prize": "Cookware set and a featured recipe in a popular magazine",
+      "winner_name": "Isabella Martinez",
+      "winner_img": "isabella_martinez.jpg",
+      "deadline": "2023-12-10",
+      "category": "popular"
+    },
+    {
+      "_id": "4",
+      "contest_name": "Epic Nature Photography Contest",
+      "img": "nature_photography.jpg",
+      "participants_count": 60,
+      "description": "Capture the beauty of nature through your lens. Submit your best nature photographs.",
+      "prize": "Professional camera equipment and a photography workshop",
+      "winner_name": "Christopher Brown",
+      "winner_img": "christopher_brown.jpg",
+      "deadline": "2023-12-20",
+      "category": "popular"
+    },
+    {
+      "_id": "5",
+      "contest_name": "Music Fusion Challenge",
+      "img": "music_fusion.jpg",
+      "participants_count": 35,
+      "description": "Blend different music genres to create a unique composition. Showcase your musical talent.",
+      "prize": "Recording studio session and a music contract offer",
+      "winner_name": "Sophia Turner",
+      "winner_img": "sophia_turner.jpg",
+      "deadline": "2023-12-05",
+      "category": "Music"
+    },
+    {
+      "_id": "6",
+      "contest_name": "Fashion Forward Design Competition",
+      "img": "fashion_design.jpg",
+      "participants_count": 70,
+      "description": "Design innovative and stylish fashion pieces. Let your creativity shine on the runway.",
+      "prize": "Fashion mentorship and a feature in a fashion magazine",
+      "winner_name": "Daniel Lee",
+      "winner_img": "daniel_lee.jpg",
+      "deadline": "2023-12-25",
+      "category": "popular"
+    },
+    {
+      "_id": "7",
+      "contest_name": "Mind-bending Puzzle Challenge",
+      "img": "puzzle_challenge.jpg",
+      "participants_count": 45,
+      "description": "Solve complex puzzles and challenge your mind. Show your problem-solving skills.",
+      "prize": "Brain-training games package and a trophy",
+      "winner_name": "Emily White",
+      "winner_img": "emily_white.jpg",
+      "deadline": "2023-11-25",
+      "category": "Games and Puzzles"
+    },
+    {
+      "_id": "8",
+      "contest_name": "Dance Fusion Showcase",
+      "img": "dance_showcase.jpg",
+      "participants_count": 55,
+      "description": "Combine dance styles to create a mesmerizing performance. Express yourself through dance.",
+      "prize": "Dance workshop scholarship and a performance opportunity",
+      "winner_name": "Michael Davis",
+      "winner_img": "michael_davis.jpg",
+      "deadline": "2023-12-18",
+      "category": "Dance"
+    },
+    {
+      "_id": "9",
+      "contest_name": "Short Film Masterpiece Contest",
+      "img": "short_film_contest.jpg",
+      "participants_count": 25,
+      "description": "Tell a compelling story through a short film. Showcase your filmmaking skills.",
+      "prize": "Film festival screening and a filmmaking equipment package",
+      "winner_name": "Olivia Taylor",
+      "winner_img": "olivia_taylor.jpg",
+      "deadline": "2023-12-08",
+      "category": "Film and Video"
+    },
+    {
+      "_id": "10",
+      "contest_name": "Fitness Transformation Challenge",
+      "img": "fitness_challenge.jpg",
+      "participants_count": 65,
+      "description": "Embark on a fitness journey and transform your body. Share your fitness achievements.",
+      "prize": "Fitness equipment package and a wellness retreat",
+      "winner_name": "Jacob Wilson",
+      "winner_img": "jacob_wilson.jpg",
+      "deadline": "2023-12-30",
+      "category": "Fitness and Wellness"
+    }
+  ]
+  
