@@ -5,7 +5,8 @@ import { useContext } from "react";
 
 const Navbar = () => {
 
-  const { user, logOut } = useContext(AuthContext)
+  const { user, logOut } = useContext(AuthContext);
+  
 
   const handleSignOut = () => {
     logOut()

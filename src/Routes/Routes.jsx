@@ -8,6 +8,8 @@ import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import AllContest from "../Pages/AllContest/AllContest";
 import ContestDetails from "../Pages/AllContest/ContestDetails";
+import Payment from "../Pages/AllContest/Payment";
+import PrivateRoute from "./PrivateRoute";
 
  export const router = createBrowserRouter([
     {
@@ -25,9 +27,13 @@ import ContestDetails from "../Pages/AllContest/ContestDetails";
         },
         {
           path: '/contestDetails/:id',
-          element: <ContestDetails></ContestDetails>,
+          element: <PrivateRoute><ContestDetails></ContestDetails></PrivateRoute>,
           // loader: ({params}) => fetch(`http://localhost:5000/contest/${params.id}`)
           loader: ({params}) => fetch(`http://localhost:5000/contest/${params.id}`)
+        },
+        {
+          path: '/payment',
+          element: <Payment></Payment>
         },
         {
             path: '/register',
