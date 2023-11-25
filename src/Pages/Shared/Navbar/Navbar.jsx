@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
 import { useContext } from "react";
+import logo from "../../../assets/contest-watchers-fb-share-1200x627-1.png";
 
 
 const Navbar = () => {
@@ -40,7 +41,7 @@ const Navbar = () => {
 
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl">daisyUI</a>
+         <img className="w-[80px] rounded-full" src={logo} alt="" />
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
@@ -60,9 +61,8 @@ const Navbar = () => {
               </label>
               <ul tabIndex={0} className="space-y-4 text-blue-400 p-4 menu menu-sm dropdown-content mt-3 z-[1]  shadow bg-base-100 rounded-box w-52">
                 <li>{user?.email}</li>
-                <Link to={'/addfood'} ><li>Add Food</li></Link>
-                <Link to={'/myAddFoodItem'} ><li>My Add Food</li></Link>
-                <Link to={'/myOrder'} ><li>My ordered food</li></Link>
+                <Link to={'/dashboard'} ><li>Dashboard</li></Link>
+                
 
                 <li onClick={handleSignOut}><a>Logout</a></li>
               </ul>

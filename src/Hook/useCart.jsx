@@ -6,14 +6,14 @@ import UseAxiosSecure from "./UseAxiosSecure";
 const useCart = () => {
     // tan stack query 
     const axiosSecure = UseAxiosSecure();
-    const {data: cart} = useQuery({
- queryKey: ['cart'],
+    const {data: contest} = useQuery({
+ queryKey: ['contest'],
  queryFn: async () => {
-    const res = await axiosSecure.get('/cart')
+    const res = await axiosSecure.get('/contest')
     return res.data;
  }
     })
-    return [cart]
+    return [contest]
 };
 
 export default useCart;

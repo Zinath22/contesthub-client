@@ -10,6 +10,8 @@ import AllContest from "../Pages/AllContest/AllContest";
 import ContestDetails from "../Pages/AllContest/ContestDetails";
 import Payment from "../Pages/AllContest/Payment";
 import PrivateRoute from "./PrivateRoute";
+import Dashboard from "../Layout/Dashboard";
+import RegContest from "../Pages/Dashboard/RegContest/RegContest";
 
  export const router = createBrowserRouter([
     {
@@ -45,4 +47,14 @@ import PrivateRoute from "./PrivateRoute";
         }
       ]
     },
+    {
+      path: 'dashboard',
+      element: <Dashboard></Dashboard>,
+      children: [
+        {
+          path: 'regContest',
+          element: <RegContest></RegContest>
+        }
+      ]
+    }
   ]);

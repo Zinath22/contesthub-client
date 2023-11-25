@@ -36,7 +36,7 @@ const ContestDetails = () => {
           <img src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="" />
           </div>
           <p>{details.deadline}</p>
-          <p>Fee: $200</p>
+          <p>Fee:$200</p>
           <div className="card-actions ">
             <Link to="/payment"><button className="btn bg-blue-400">Registration</button></Link>
           </div>

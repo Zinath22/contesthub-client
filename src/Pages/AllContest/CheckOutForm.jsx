@@ -3,6 +3,8 @@ import { useContext, useEffect, useState } from "react";
 import UseAxiosSecure from "../../Hook/UseAxiosSecure";
 import { AuthContext } from "../../providers/AuthProvider";
 import useCart from "../../Hook/useCart";
+import Swal from "sweetalert2";
+// import { useNavigate } from "react-router-dom";
 // import ContestDetails from "./ContestDetails";
 
 
@@ -14,7 +16,8 @@ const CheckOutForm = () => {
     const elements = useElements();
     const axiosSecure = UseAxiosSecure();
     const {user} = useContext(AuthContext);
-    const [cart] = useCart();
+    const [contest] = useCart();
+    // const navigate = useNavigate();
     // const price = cart.reduce((total, item) => total + item.price , 0)
     const price = 200
 
@@ -78,13 +81,24 @@ const CheckOutForm = () => {
                 price: price,
                 transactionId: paymentIntent.id,
                 date: new Date(),
-                cartsIds: cart.map(item => item._id),
-                // allContestId: contest.map(item => item._id),
+                contestIds: contest.map(item => item._id),
+                allContestIds: contest.map(item => item.contestId),
                 status: 'pending'
               }
 
             const res = await  axiosSecure.post('/payments', payment);
-            console.log('payment saved',res);
+            // refetch();
+            if(res.data?.paymentResult?.insertedId){
+              Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "Thank you for the payment",
+                showConfirmButton: false,
+                timer: 1500
+            });
+            // navigate('/dashboard/paymentHistory')
+            }
+
               
             }
           }

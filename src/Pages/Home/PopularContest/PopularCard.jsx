@@ -10,14 +10,14 @@ const PopularCard = ({item}) => {
     return (
         <div>
             
-            <div className="card card-compact w-96 my-7 bg-base-100 shadow-xl">
+            <div className="card card-compact  w-96 my-7 bg-base-100 shadow-xl">
   <figure><img src={img} alt="" /></figure>
   <div className="card-body">
-    <h2 className="card-title">{contest_name}</h2>
-    <h2 className="card-title">{participants_count}</h2>
-    <p>{description}</p>
+    <h2 className="card-title text-teal-600">{contest_name}</h2>
+    <h2 className="card-title text-teal-600">{participants_count}</h2>
+    <p className="text-teal-600">{description}</p>
     <div className="card-actions">
-     <Link to={`/contestDetails/${_id}`}> <button className="btn btn-primary">Details</button></Link>
+     <Link to={`/contestDetails/${_id}`}> <button className="btn text-black bg-teal-600">Details</button></Link>
     </div>
   </div>
 </div>

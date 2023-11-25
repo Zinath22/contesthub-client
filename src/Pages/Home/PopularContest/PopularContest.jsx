@@ -14,7 +14,7 @@ const PopularContest = () => {
     }, [])
 
     return (
-        <div>
+        <div className="">
             <SectionTitle heading={'Popular Contest'}></SectionTitle>
             <div className="my-7 grid grid-cols-2 md:grid-cols-1 lg:grid-cols-3">
                 {
