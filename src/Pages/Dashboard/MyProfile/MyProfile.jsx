@@ -1,73 +1,61 @@
 
-import { useContext} from "react";
-import { Link, useNavigate } from "react-router-dom";
 
-import { AuthContext } from "../../providers/AuthProvider";
+
+import { Link, useNavigate} from "react-router-dom";
+
+
 // import Swal from "sweetalert2";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
-import useAxiosPublic from "../../Hook/useAxiosPublic/useAxiosPublic";
 
-// import { FaGoogle } from "react-icons/fa";
+import { AuthContext } from "../../../providers/AuthProvider";
+import { useContext } from "react";
 // import app from "../../firebase/firebase.config";
 
 
 
-const Register = () => {
+const MyProfile = () => {
 
 
-    const axiosPublic = useAxiosPublic();
-    const { register, handleSubmit,reset,  formState: { errors } } = useForm();
+    // const axiosPublic = UseAxiosPublic();
+    const { register, handleSubmit,  formState: { errors } } = useForm();
     const { createUser,logOut, updateUserProfile } = useContext(AuthContext)
     const navigate = useNavigate();
 
     const onSubmit = data => {
-        
+        console.log(data);
         createUser(data.email, data.password)
             .then(result => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
                 updateUserProfile(data.name, data.photoURL)
                     .then(() => {
-                      //  create user save in the database 
-                      const userInfo = {
-                        name: data.name,
-                        email: data.email
-                      }
-                axiosPublic.post('/users',userInfo)
-                .then(res => {
-                  if(res.data.insertedId){
-                    reset();
-                    Swal.fire({
-                        position: 'top-end',
-                        icon: 'success',
-                        title: 'User created successfully.',
-                        showConfirmButton: false,
-                        timer: 1500
-                    });
-
-                    
-                    navigate(location?.state ? location.state : '/login')
-                  }
-                })
-                       
+                        console.log('user profile info updated')
+                        // reset();
+                        Swal.fire({
+                            position: 'top-end',
+                            icon: 'success',
+                            title: 'User created successfully.',
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
 
                         logOut()
                         .then(() => {
-                            
+                            // Log out success
                         })
-                       
-                        .catch(error => console.log(error))
-
-                        
-                  
+                        .catch(error => {
+                            console.error(error);
+                        });
+                    navigate(location?.state ? location.state : '/login')
                 })
-                       
+                        // navigate('/login');
+
+                    // })
 
                    
-                    
+                    .catch(error => console.log(error))
             })
-            
     };
 
   
@@ -128,7 +116,7 @@ const Register = () => {
   
                   {errors.password?.type === 'minLength' && <span className="text-red-600">password must be 6 character</span>}
   
-                  {errors.password?.type === 'pattern' && <span className="text-red-600">password must have uppercase lower one upper character</span>}
+                  {errors.password?.type === 'pattern' && <span className="text-red-600">password must have uppercase lowercase and one special character</span>}
   
                   {/* <label className="label">
                     <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
@@ -147,14 +135,8 @@ const Register = () => {
                                  </p>
                              </div>
               </form>
-{/*               
-              <div className="space-y-3">
-              <button onClick={handleGoogleLogin}
-                 className=" btn-outline btn w-full bg-gradient-to-r  from-pink-500 to-purple-500  py-3 text-center rounded text-white" >
-                    <FaGoogle></FaGoogle>
-                  Login In With Googleee</button>
-              </div> */}
-             
+              
+           
             </div>
           
         </div>
@@ -163,4 +145,4 @@ const Register = () => {
     );
   };
 
-export default Register;
+export default MyProfile;

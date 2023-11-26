@@ -1,10 +1,11 @@
 
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 
 const PopularCard = ({item}) => {
     const {_id, contest_name, img,participants_count, description,category } = item;
-
+//  const [seeMore , setSeeMore] = useState(false);
    
 
     return (
@@ -19,11 +20,13 @@ const PopularCard = ({item}) => {
     {
       description.length > 10 ?
       <p className="text-teal-500">{description.slice(0,10)}
-      <Link to={`/item/${_id}`}
-       className="text-red-500 font-bold">See more</Link>
+      
+       <button>see more</button>
       </p> :
       <p>{description}</p>
     }
+    
+
     <div className="card-actions">
      <Link to={`/contestDetails/${_id}`}> <button className="btn text-white bg-teal-600  btn-outline border-0 border-b-4 mt-4">Details</button></Link>
     </div>

@@ -12,6 +12,8 @@ import Payment from "../Pages/AllContest/Payment";
 import PrivateRoute from "./PrivateRoute";
 import Dashboard from "../Layout/Dashboard";
 import RegContest from "../Pages/Dashboard/RegContest/RegContest";
+import MyWinning from "../Pages/Dashboard/MyWinning/MyWinning";
+import MyProfile from "../Pages/Dashboard/MyProfile/MyProfile";
 
  export const router = createBrowserRouter([
     {
@@ -55,6 +57,14 @@ import RegContest from "../Pages/Dashboard/RegContest/RegContest";
         {
           path: 'regContest',
           element: <RegContest></RegContest>
+        },
+        {
+          path: 'myWinning',
+          element: <MyWinning></MyWinning>
+        },
+        {
+          path: 'myProfile',
+          element: <MyProfile></MyProfile>
         }
       ]
     }

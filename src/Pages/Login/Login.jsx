@@ -2,6 +2,9 @@ import { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import Swal from "sweetalert2";
+import { FaGoogle } from "react-icons/fa";
+import useAxiosPublic from "../../Hook/useAxiosPublic/useAxiosPublic";
+
 
 
 const Login = () => {
@@ -9,6 +12,7 @@ const Login = () => {
     const [error, setError] = useState("");
     const location = useLocation();
     const navigate = useNavigate();
+    const axiosPublic = useAxiosPublic();
 
     const handleLogin = (e) => {
         e.preventDefault();
@@ -56,8 +60,17 @@ const Login = () => {
       const handleGoogleLogin = () => {
         googleLogIn()
           .then((result) => {
+
             // const loggedInUser = result.user
             console.log(result.user);
+            const userInfo ={
+              email: result.user?.email,
+              name: result.user?.displayName
+            }
+            axiosPublic.post('/users', userInfo)
+            .then(res => {
+              console.log(res.data);
+            })
             // const user = { email };
             navigate(location?.state ? location.state : "/");
             // get access token 
@@ -111,7 +124,7 @@ const Login = () => {
               <div className="space-y-3">
               <button onClick={handleGoogleLogin}
                  className=" btn-outline btn w-full bg-gradient-to-r  from-pink-500 to-purple-500  py-3 text-center rounded text-white" >
-                    {/* <FaGoogle></FaGoogle> */}
+                    <FaGoogle></FaGoogle>
                   Login In With Googleee</button>
               </div>
             </div>
