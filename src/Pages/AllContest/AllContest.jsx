@@ -29,7 +29,7 @@ const Jobs = () => {
           setMedical(medicalData);
           setArtical(articalData);
           setGaming(gamingData)
-          console.log("gaming",gaming);
+          console.log("gaming", gaming);
         } else {
           console.error('Failed to fetch data');
         }
@@ -52,9 +52,9 @@ const Jobs = () => {
           <Tab>Gaming</Tab>
         </TabList>
 
-        <div className='w-[90%] p-4 mx-auto min-h-screen'>
+        <div className=''>
           <TabPanel>
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10'>
               {
                 business.map(contest => (
                   <div
@@ -62,14 +62,37 @@ const Jobs = () => {
                     className="container"
                   //   whileHover={{ scale: 1.2  }}
                   >
-                    <div className='border p-6 space-y-2 rounded bg-cyan-100 h-60 flex flex-col'>
-                      <h2>Job Title: <span className='font-semibold'>{contest.jobTitle}</span></h2>
-                      <h2>Deadline: {contest.deadline}</h2>
-                      <h2>Price range: ${contest.maxPrice} - ${contest.minPrice}</h2>
+                    {/* <div className='border p-6 space-y-2 rounded bg-cyan-100 h-60 flex flex-col'>
+                      <h2>Contest Name: <span className='font-semibold'>{contest.contest_name}</span></h2>
+                      <h2>Praticipants Count{contest.participants_count}</h2>
+                      
                       <h2 className='flex-grow'>Description: {contest.description}</h2>
                       <Link to={`/job-details/${contest._id}`}>
-                        <button className='btn btn-accent text-white w-full '>Bid Now</button>
+                        <button className='btn btn-accent text-white w-full '>Details</button>
                       </Link>
+                    </div> */}
+
+                    <div>
+
+                      <div className="card card-compact  my-5 bg-base-100 shadow-xl">
+                        <figure><img className="w-full h-[180px]" src={contest.img} alt="" /></figure>
+                        <div className="card-body">
+                          <h2 className="card-title text-teal-600">{contest.contest_name}</h2>
+                          <h2 className="card-title text-teal-600">{contest.participants_count}</h2>
+                          {/* <p className="text-teal-600">{description}</p> */}
+                          {
+                            contest.description.length > 10 ?
+                              <p className="text-teal-500">{contest.description.slice(0, 10)}
+                                <Link to={`/item/${contest._id}`}
+                                  className="text-red-500 font-bold">See more</Link>
+                              </p> :
+                              <p>{contest.description}</p>
+                          }
+                          <div className="card-actions">
+                            <Link to={`/contestDetails/${contest._id}`}> <button className="btn text-black bg-teal-600">Details</button></Link>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 ))}
@@ -83,14 +106,24 @@ const Jobs = () => {
                   className="container"
                 //   whileHover={{ scale: 1.2}}
                 >
-                  <div className='border p-6 space-y-2 rounded bg-cyan-100 h-60 flex flex-col'>
-                    <h2>Job Title: <span className='font-semibold'>{contest.jobTitle}</span></h2>
-                    <h2>Deadline: {contest.deadline}</h2>
-                    <h2>Price range: ${contest.maxPrice} - ${contest.minPrice}</h2>
-                    <h2 className='flex-grow'>Description: {contest.description}</h2>
-                    <Link to={`/job-details/${contest._id}`}>
-                      <button className='btn btn-accent text-white w-full '>Bid Now</button>
-                    </Link>
+                  <div className="card card-compact  my-5 bg-base-100 shadow-xl">
+                    <figure><img className="w-full h-[180px]" src={contest.img} alt="" /></figure>
+                    <div className="card-body">
+                      <h2 className="card-title text-teal-600">{contest.contest_name}</h2>
+                      <h2 className="card-title text-teal-600">{contest.participants_count}</h2>
+                      {/* <p className="text-teal-600">{description}</p> */}
+                      {
+                        contest.description.length > 10 ?
+                          <p className="text-teal-500">{contest.description.slice(0, 10)}
+                            <Link to={`/item/${contest._id}`}
+                              className="text-red-500 font-bold">See more</Link>
+                          </p> :
+                          <p>{contest.description}</p>
+                      }
+                      <div className="card-actions">
+                        <Link to={`/contestDetails/${contest._id}`}> <button className="btn text-black bg-teal-600">Details</button></Link>
+                      </div>
+                    </div>
                   </div>
                 </div>
               ))}
@@ -104,14 +137,24 @@ const Jobs = () => {
                   className="container"
                 //   whileHover={{ scale: 1.2}}
                 >
-                  <div className='border p-6 space-y-2 rounded bg-cyan-100 h-60 flex flex-col'>
-                    <h2>Job Title: <span className='font-semibold'>{contest.jobTitle}</span></h2>
-                    <h2>Deadline: {contest.deadline}</h2>
-                    <h2>Price range: ${contest.maxPrice} - ${contest.minPrice}</h2>
-                    <h2 className='flex-grow'>Description: {contest.description}</h2>
-                    <Link to={`/job-details/${contest._id}`}>
-                      <button className='btn btn-accent text-white w-full '>Bid Now</button>
-                    </Link>
+                  <div className="card card-compact  my-5 bg-base-100 shadow-xl">
+                    <figure><img className="w-full h-[180px]" src={contest.img} alt="" /></figure>
+                    <div className="card-body">
+                      <h2 className="card-title text-teal-600">{contest.contest_name}</h2>
+                      <h2 className="card-title text-teal-600">{contest.participants_count}</h2>
+                      {/* <p className="text-teal-600">{description}</p> */}
+                      {
+                        contest.description.length > 10 ?
+                          <p className="text-teal-500">{contest.description.slice(0, 10)}
+                            <Link to={`/item/${contest._id}`}
+                              className="text-red-500 font-bold">See more</Link>
+                          </p> :
+                          <p>{contest.description}</p>
+                      }
+                      <div className="card-actions">
+                        <Link to={`/contestDetails/${contest._id}`}> <button className="btn text-black bg-teal-600">Details</button></Link>
+                      </div>
+                    </div>
                   </div>
                 </div>
               ))}
@@ -125,14 +168,24 @@ const Jobs = () => {
                   className="container"
                 //   whileHover={{ scale: 1.2}}
                 >
-                  <div className='border p-6 space-y-2 rounded bg-cyan-100 h-60 flex flex-col'>
-                    <h2>Job Title: <span className='font-semibold'>{contest.jobTitle}</span></h2>
-                    <h2>Deadline: {contest.deadline}</h2>
-                    <h2>Price range: ${contest.maxPrice} - ${contest.minPrice}</h2>
-                    <h2 className='flex-grow'>Description: {contest.description}</h2>
-                    <Link to={`/job-details/${contest._id}`}>
-                      <button className='btn btn-accent text-white w-full '>Bid Now</button>
-                    </Link>
+                  <div className="card card-compact  my-5 bg-base-100 shadow-xl">
+                    <figure><img className="w-full h-[180px]" src={contest.img} alt="" /></figure>
+                    <div className="card-body">
+                      <h2 className="card-title text-teal-600">{contest.contest_name}</h2>
+                      <h2 className="card-title text-teal-600">{contest.participants_count}</h2>
+                      {/* <p className="text-teal-600">{description}</p> */}
+                      {
+                        contest.description.length > 10 ?
+                          <p className="text-teal-500">{contest.description.slice(0, 10)}
+                            <Link to={`/item/${contest._id}`}
+                              className="text-red-500 font-bold">See more</Link>
+                          </p> :
+                          <p>{contest.description}</p>
+                      }
+                      <div className="card-actions">
+                        <Link to={`/contestDetails/${contest._id}`}> <button className="btn text-black bg-teal-600">Details</button></Link>
+                      </div>
+                    </div>
                   </div>
                 </div>
               ))}
@@ -142,16 +195,9 @@ const Jobs = () => {
         </div>
       </Tabs>
 
-      {/* <div className='flex justify-end mb-10 '>
-        <Link to={"/all-jobs"}>
-          <div className='flex justify-between items-center gap-2 cursor-pointer text-cyan-600 p-2 hover:outline rounded-lg   hover:outline-1'>
-            <span className='btn-link text-cyan-600 '>ALL JOBS</span><AiOutlineArrowRight />
-          </div>
-        </Link>
-      </div> */}
+     
 
-      {/* <img className='min-h-screen max-w-6 rounded-lg' src="https://i.ibb.co/31N0KWJ/ESL-Conversational-and-Vocabulary-Building-Educational-Presentation-in-Blue-and-Orange-Realistic-Sty.png" alt="" /> */}
-
+      
     </div>
   );
 };

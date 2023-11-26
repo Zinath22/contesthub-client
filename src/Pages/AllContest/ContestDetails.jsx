@@ -24,7 +24,7 @@ const ContestDetails = () => {
 
     return (
         <div className="card  my-7 card-compact w-96 bg-base-100 shadow-xl">
-        <figure><img src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
+        <figure><img className="w-full h-[180px]" src={details.img} alt="Shoes" /></figure>
         <div className="card-body">
           <h2 className="card-title">{details.contest_name}</h2>
          
