@@ -4,6 +4,7 @@ import UseAxiosSecure from "../../Hook/UseAxiosSecure";
 import { AuthContext } from "../../providers/AuthProvider";
 import useCart from "../../Hook/useCart";
 import Swal from "sweetalert2";
+import { useLoaderData } from "react-router-dom";
 // import { useNavigate } from "react-router-dom";
 // import ContestDetails from "./ContestDetails";
 
@@ -17,6 +18,8 @@ const CheckOutForm = () => {
     const axiosSecure = UseAxiosSecure();
     const {user} = useContext(AuthContext);
     const [contest] = useCart();
+    const myContest = useLoaderData()
+    console.log(myContest);
     // const navigate = useNavigate();
     // const price = cart.reduce((total, item) => total + item.price , 0)
     const price = 200
@@ -83,7 +86,9 @@ const CheckOutForm = () => {
                 date: new Date(),
                 contestIds: contest.map(item => item._id),
                 allContestIds: contest.map(item => item.contestId),
-                status: 'pending'
+                myContest,
+                
+                status: 'sucess'
               }
 
             const res = await  axiosSecure.post('/payments', payment);

@@ -74,7 +74,7 @@ const Jobs = () => {
 
                     <div>
 
-                      <div className="card card-compact  my-5 bg-base-100 shadow-xl">
+                      <div className="card card-compact  my-5 bg-sky-200 shadow-xl">
                         <figure><img className="w-full h-[180px]" src={contest.img} alt="" /></figure>
                         <div className="card-body">
                           <h2 className="card-title text-teal-600">{contest.contest_name}</h2>
@@ -89,7 +89,7 @@ const Jobs = () => {
                               <p>{contest.description}</p>
                           }
                           <div className="card-actions">
-                            <Link to={`/contestDetails/${contest._id}`}> <button className="btn text-black bg-teal-600">Details</button></Link>
+                            <Link to={`/contestDetails/${contest._id}`}> <button className="btn text-white bg-teal-600  btn-outline border-0 border-b-4 mt-4">Details</button></Link>
                           </div>
                         </div>
                       </div>
@@ -106,7 +106,7 @@ const Jobs = () => {
                   className="container"
                 //   whileHover={{ scale: 1.2}}
                 >
-                  <div className="card card-compact  my-5 bg-base-100 shadow-xl">
+                  <div className="card card-compact  my-5  bg-sky-200 shadow-xl">
                     <figure><img className="w-full h-[180px]" src={contest.img} alt="" /></figure>
                     <div className="card-body">
                       <h2 className="card-title text-teal-600">{contest.contest_name}</h2>
@@ -121,7 +121,7 @@ const Jobs = () => {
                           <p>{contest.description}</p>
                       }
                       <div className="card-actions">
-                        <Link to={`/contestDetails/${contest._id}`}> <button className="btn text-black bg-teal-600">Details</button></Link>
+                        <Link to={`/contestDetails/${contest._id}`}> <button className="btn text-white bg-teal-600  btn-outline border-0 border-b-4 mt-4">Details</button></Link>
                       </div>
                     </div>
                   </div>
@@ -137,7 +137,7 @@ const Jobs = () => {
                   className="container"
                 //   whileHover={{ scale: 1.2}}
                 >
-                  <div className="card card-compact  my-5 bg-base-100 shadow-xl">
+                  <div className="card card-compact  my-5  bg-sky-200 shadow-xl">
                     <figure><img className="w-full h-[180px]" src={contest.img} alt="" /></figure>
                     <div className="card-body">
                       <h2 className="card-title text-teal-600">{contest.contest_name}</h2>
@@ -152,7 +152,7 @@ const Jobs = () => {
                           <p>{contest.description}</p>
                       }
                       <div className="card-actions">
-                        <Link to={`/contestDetails/${contest._id}`}> <button className="btn text-black bg-teal-600">Details</button></Link>
+                        <Link to={`/contestDetails/${contest._id}`}> <button className="btn text-white bg-teal-600  btn-outline border-0 border-b-4 mt-4">Details</button></Link>
                       </div>
                     </div>
                   </div>
@@ -168,7 +168,7 @@ const Jobs = () => {
                   className="container"
                 //   whileHover={{ scale: 1.2}}
                 >
-                  <div className="card card-compact  my-5 bg-base-100 shadow-xl">
+                  <div className="card card-compact  my-5  bg-sky-200 shadow-xl">
                     <figure><img className="w-full h-[180px]" src={contest.img} alt="" /></figure>
                     <div className="card-body">
                       <h2 className="card-title text-teal-600">{contest.contest_name}</h2>
@@ -183,7 +183,7 @@ const Jobs = () => {
                           <p>{contest.description}</p>
                       }
                       <div className="card-actions">
-                        <Link to={`/contestDetails/${contest._id}`}> <button className="btn text-black bg-teal-600">Details</button></Link>
+                        <Link to={`/contestDetails/${contest._id}`}> <button className="btn text-white bg-teal-600  btn-outline border-0 border-b-4 mt-4">Details</button></Link>
                       </div>
                     </div>
                   </div>

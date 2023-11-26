@@ -38,7 +38,7 @@ const ContestDetails = () => {
           <p>{details.deadline}</p>
           <p>Fee:$200</p>
           <div className="card-actions ">
-            <Link to="/payment"><button className="btn bg-blue-400">Registration</button></Link>
+            <Link to={`/payment/${details._id}`}><button className="btn bg-blue-400">Registration</button></Link>
           </div>
         </div>
       </div>
