@@ -3,15 +3,45 @@ import { FaHome} from "react-icons/fa";
 
 
 const Dashboard = () => {
+    const isAdmin = true;
+    const isCreator = false;
+
     return (
         <div className="flex">
             <div className="w-64 min-h-screen bg-teal-500">
       <ul className="menu ">
-            <li><NavLink to="/dashboard/regContest">My Registered Contest</NavLink></li>
+           {
+            isAdmin? <>
+               <li><NavLink to="/dashboard/manageUser">
+                
+                Manage User</NavLink></li>
+            <li><NavLink to="/dashboard/manageContest">Manage Contest</NavLink></li>
+            
+           
+             </> :
+             <>
+              <li><NavLink to="/dashboard/regContest">My Registered Contest</NavLink></li>
             <li><NavLink to="/dashboard/myWinning"> My Winning Contest Page</NavLink></li>
             <li><NavLink to="/dashboard/myProfile"> My Profile</NavLink></li>
+             </>
+           }
       {/* divider  */}
             <div className="divider"></div>
+
+            {/* creator  */}
+            {
+                isCreator? <>
+                  <li><NavLink to="/dashboard/addContest">Add Contest</NavLink></li>
+            {/* <li><NavLink to="/dashboard/myWinning"> My Winning Contest Page</NavLink></li> */}
+            {/* <li><NavLink to="/dashboard/myProfile"> My Profile</NavLink></li> */}
+                </> :
+
+                <>
+                  <li><NavLink to="/dashboard/regContest">My Registered Contest</NavLink></li>
+            <li><NavLink to="/dashboard/myWinning"> My Winning Contest Page</NavLink></li>
+            <li><NavLink to="/dashboard/myProfile"> My Profile</NavLink></li>
+                </>
+            }
 
             <div className="divider"></div>
                     <li>

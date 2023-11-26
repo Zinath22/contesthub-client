@@ -7,8 +7,6 @@ import { AuthContext } from "../../providers/AuthProvider";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import useAxiosPublic from "../../Hook/useAxiosPublic/useAxiosPublic";
-
-// import { FaGoogle } from "react-icons/fa";
 // import app from "../../firebase/firebase.config";
 
 
@@ -29,7 +27,7 @@ const Register = () => {
                 console.log(loggedUser);
                 updateUserProfile(data.name, data.photoURL)
                     .then(() => {
-                      //  create user save in the database 
+                      //  create user entry in the database 
                       const userInfo = {
                         name: data.name,
                         email: data.email
@@ -37,37 +35,34 @@ const Register = () => {
                 axiosPublic.post('/users',userInfo)
                 .then(res => {
                   if(res.data.insertedId){
-                    reset();
-                    Swal.fire({
-                        position: 'top-end',
-                        icon: 'success',
-                        title: 'User created successfully.',
-                        showConfirmButton: false,
-                        timer: 1500
-                    });
-
-                    
-                    navigate(location?.state ? location.state : '/login')
+                      reset();
+                        Swal.fire({
+                            position: 'top-end',
+                            icon: 'success',
+                            title: 'User created successfully.',
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
                   }
                 })
                        
 
                         logOut()
                         .then(() => {
-                            
+                            // Log out success
                         })
-                       
-                        .catch(error => console.log(error))
-
-                        
-                  
+                        .catch(error => {
+                            console.error(error);
+                        });
+                    navigate(location?.state ? location.state : '/login')
                 })
-                       
+                        // navigate('/login');
+
+                    // })
 
                    
-                    
+                    .catch(error => console.log(error))
             })
-            
     };
 
   
@@ -147,14 +142,13 @@ const Register = () => {
                                  </p>
                              </div>
               </form>
-{/*               
-              <div className="space-y-3">
+              
+              {/* <div className="space-y-3">
               <button onClick={handleGoogleLogin}
                  className=" btn-outline btn w-full bg-gradient-to-r  from-pink-500 to-purple-500  py-3 text-center rounded text-white" >
                     <FaGoogle></FaGoogle>
                   Login In With Googleee</button>
               </div> */}
-             
             </div>
           
         </div>

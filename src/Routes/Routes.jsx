@@ -14,6 +14,10 @@ import Dashboard from "../Layout/Dashboard";
 import RegContest from "../Pages/Dashboard/RegContest/RegContest";
 import MyWinning from "../Pages/Dashboard/MyWinning/MyWinning";
 import MyProfile from "../Pages/Dashboard/MyProfile/MyProfile";
+import ManageUser from "../Pages/AdminDashboard/ManageUser/ManageUser";
+import ManageContest from "../Pages/AdminDashboard/ManageContest/ManageContest";
+import AddContest from "../Pages/CreatorDashboard/AddContest/AddContest";
+
 
  export const router = createBrowserRouter([
     {
@@ -52,7 +56,7 @@ import MyProfile from "../Pages/Dashboard/MyProfile/MyProfile";
     },
     {
       path: 'dashboard',
-      element: <Dashboard></Dashboard>,
+      element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
       children: [
         {
           path: 'regContest',
@@ -65,6 +69,23 @@ import MyProfile from "../Pages/Dashboard/MyProfile/MyProfile";
         {
           path: 'myProfile',
           element: <MyProfile></MyProfile>
+        },
+
+        // admin routes 
+       
+        {
+          path: 'manageUser',
+          element: <ManageUser></ManageUser>
+        },
+        {
+          path: 'manageContest',
+          element: <ManageContest></ManageContest>
+        },
+
+        // creator 
+        {
+          path: 'addContest',
+          element: <AddContest></AddContest>
         }
       ]
     }
