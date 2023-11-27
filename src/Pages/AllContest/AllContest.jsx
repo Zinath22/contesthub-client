@@ -11,6 +11,7 @@ const Jobs = () => {
   const [medical, setMedical] = useState([]);
   const [artical, setArtical] = useState([]);
   const [gaming, setGaming] = useState([]);
+// console.log(contests);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -48,7 +49,7 @@ const Jobs = () => {
         <TabList>
           <Tab>Business</Tab>
           <Tab>Medical</Tab>
-          <Tab>Artical</Tab>
+          <Tab>Article</Tab>
           <Tab>Gaming</Tab>
         </TabList>
 

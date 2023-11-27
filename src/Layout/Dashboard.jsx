@@ -1,5 +1,5 @@
 import { NavLink, Outlet } from "react-router-dom";
-import { FaHome} from "react-icons/fa";
+import { FaHome, FaUsers} from "react-icons/fa";
 import useAdmin from "../Hook/useAdmin";
 
 
@@ -16,7 +16,9 @@ const Dashboard = () => {
                <li><NavLink to="/dashboard/manageUser">
                 
                 Manage User</NavLink></li>
-            <li><NavLink to="/dashboard/manageContest">Manage Contest</NavLink></li>
+            <li><NavLink to="/dashboard/manageContest">
+                <FaUsers className="text-2xl text-white"></FaUsers>
+                Manage Contest</NavLink></li>
             
            
              </>  :
