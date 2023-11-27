@@ -8,7 +8,7 @@ import { AuthContext } from "../../../providers/AuthProvider";
 
 const AddContest = () => {
 const {user} = useContext(AuthContext);
-  const { register, handleSubmit } = useForm()
+  const { register, handleSubmit , reset} = useForm()
   const axiosSecure = useAxiosSecure();
   // const axiosPublic = useAxiosPublic();
 
@@ -39,10 +39,11 @@ const {user} = useContext(AuthContext);
     const contestRes = await axiosSecure.post('/contest', contestItem);
     console.log(contestRes.data);
     if (contestRes.data.insertedId) {
+      reset()
       Swal.fire({
         position: "top-end",
         icon: "success",
-        title: `${data.contest_name} is added to the menu.`,
+        title: `${data.contest_name} is added to the contest.`,
         showConfirmButton: false,
         timer: 1500
       });
@@ -185,7 +186,7 @@ return (
 
 
 
-        <input type="submit" />
+        <button className="btn bg-teal-500 my-4 justify-center items-center ">Add Contest</button>
       </form>
 
     </div>

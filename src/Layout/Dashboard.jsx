@@ -19,6 +19,9 @@ const Dashboard = () => {
             <li><NavLink to="/dashboard/manageContest">
                 <FaList className="text-2xl text-white"></FaList>
                 Manage Contest</NavLink></li>
+            {/* <li><NavLink to="/dashboard/updateContest">
+                <FaList className="text-2xl text-white"></FaList>
+                Update Contest</NavLink></li> */}
             
            
              </>  :

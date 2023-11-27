@@ -17,6 +17,7 @@ import MyProfile from "../Pages/Dashboard/MyProfile/MyProfile";
 import ManageUser from "../Pages/AdminDashboard/ManageUser/ManageUser";
 import ManageContest from "../Pages/AdminDashboard/ManageContest/ManageContest";
 import AddContest from "../Pages/CreatorDashboard/AddContest/AddContest";
+import UpdateContest from "../Pages/AdminDashboard/UpdataContest/UpdateContest";
 
 
  export const router = createBrowserRouter([
@@ -80,6 +81,12 @@ import AddContest from "../Pages/CreatorDashboard/AddContest/AddContest";
         {
           path: 'manageContest',
           element: <ManageContest></ManageContest>
+        },
+
+        {
+          path: 'updateContest/:id',
+          element: <UpdateContest></UpdateContest>,
+          loader: ({params}) => fetch(`http://localhost:5000/contest/${params.id}`)
         },
 
         // creator 

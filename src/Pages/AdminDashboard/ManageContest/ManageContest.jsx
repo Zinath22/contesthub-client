@@ -78,9 +78,7 @@ const ManageContest = () => {
                                     <td>
                                         <div className="flex items-center gap-3">
                                             <div className="avatar">
-                                                {/* <div className="mask mask-squircle w-12 h-12">
-                                                    <img src={item.img} alt="Avatar Tailwind CSS Component" />
-                                                </div> */}
+                                               
                                             </div>
                                         </div>
                                     </td>
@@ -90,7 +88,7 @@ const ManageContest = () => {
                                     <td className="text-right">${item.fee}</td>
                                     <td className="text-right">${item.prize}</td>
                                     <td>
-                                        <Link to={`/dashboard/updateItem/${item._id}`}>
+                                        <Link to={`/dashboard/updateContest/${item._id}`}>
                                             <button
                                                 className="btn btn-ghost btn-lg bg-teal-500">
                                                 <FaEdit className="text-white 
