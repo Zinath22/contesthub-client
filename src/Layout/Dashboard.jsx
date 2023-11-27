@@ -1,10 +1,11 @@
 import { NavLink, Outlet } from "react-router-dom";
 import { FaHome} from "react-icons/fa";
+import useAdmin from "../Hook/useAdmin";
 
 
 const Dashboard = () => {
-    const isAdmin = true;
-    const isCreator = false;
+    const [isAdmin] = useAdmin();
+    // const isCreator = false;
 
     return (
         <div className="flex">
@@ -18,7 +19,8 @@ const Dashboard = () => {
             <li><NavLink to="/dashboard/manageContest">Manage Contest</NavLink></li>
             
            
-             </> :
+             </>  :
+
              <>
               <li><NavLink to="/dashboard/regContest">My Registered Contest</NavLink></li>
             <li><NavLink to="/dashboard/myWinning"> My Winning Contest Page</NavLink></li>
@@ -29,19 +31,19 @@ const Dashboard = () => {
             <div className="divider"></div>
 
             {/* creator  */}
-            {
+            {/* {
                 isCreator? <>
-                  <li><NavLink to="/dashboard/addContest">Add Contest</NavLink></li>
+                  <li><NavLink to="/dashboard/addContest">Add Contest</NavLink></li> */}
             {/* <li><NavLink to="/dashboard/myWinning"> My Winning Contest Page</NavLink></li> */}
             {/* <li><NavLink to="/dashboard/myProfile"> My Profile</NavLink></li> */}
-                </> :
+                {/* </> :
 
                 <>
                   <li><NavLink to="/dashboard/regContest">My Registered Contest</NavLink></li>
             <li><NavLink to="/dashboard/myWinning"> My Winning Contest Page</NavLink></li>
             <li><NavLink to="/dashboard/myProfile"> My Profile</NavLink></li>
-                </>
-            }
+                </> */}
+            {/* } */}
 
             <div className="divider"></div>
                     <li>

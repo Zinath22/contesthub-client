@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Navigate, useLocation } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
+import useAdmin from "../Hook/useAdmin";
 // import UseAdmin from "../Hooks/UseAdmin";
 
 // import UseAuth from "../Hooks/UseAuth";
@@ -9,7 +10,7 @@ import { AuthContext } from "../providers/AuthProvider";
 const AdminRoute = ({children}) => {
     // const [user, loading] = UseAuth();
     const { user, loading } = useContext(AuthContext);
-    const  [isAdmin, isAdminLoading] = UseAdmin();
+    const  [isAdmin, isAdminLoading] = useAdmin();
     const location = useLocation();
 
     if(loading || isAdminLoading){
