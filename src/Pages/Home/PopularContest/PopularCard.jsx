@@ -1,4 +1,5 @@
 
+
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -6,6 +7,12 @@ import { Link } from "react-router-dom";
 const PopularCard = ({item}) => {
     const {_id, contest_name, img,participants_count, description,category } = item;
 //  const [seeMore , setSeeMore] = useState(false);
+const [showFullDescription, setShowFullDescription] = useState(false);
+
+  const handleToggle = () => {
+    setShowFullDescription(!showFullDescription);
+  };
+
    
 
     return (
@@ -16,15 +23,21 @@ const PopularCard = ({item}) => {
   <div className="card-body">
     <h2 className="card-title text-teal-600">{contest_name}</h2>
     <h2 className="card-title text-teal-600">{participants_count}</h2>
-    {/* <p className="text-teal-600">{description}</p> */}
-    {
-      description.length > 10 ?
-      <p className="text-teal-500">{description.slice(0,10)}
-      
-       <button>see more</button>
-      </p> :
-      <p>{description}</p>
-    }
+    
+
+<p>
+      {showFullDescription ? (
+        <span className="">
+          {description}
+          <button className="ml-4 text-green-600 text-sm underline" onClick={handleToggle}>See less</button>
+        </span>
+      ) : (
+        <span>
+          {description.slice(0, 10)}
+          {description.length > 10 && <button className="ml-2 text-green-600 text-sm underline" onClick={handleToggle}>See more</button>}
+        </span>
+      )}
+    </p>
     
 
     <div className="card-actions">

@@ -42,6 +42,22 @@ const ManageUsers = () => {
             }
         })
     }
+    const handleMakeCreator = user => {
+        axiosSecure.patchForm(`/users/creator/${user._id}`)
+        .then(res => {
+            console.log(res.data)
+            if(res.data.modifiedCount > 0){
+                refetch();
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: `${user.name} is an Admin Now`,
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+            }
+        })
+    }
 
     const handleUserDelete = user =>{
   
@@ -104,6 +120,16 @@ const ManageUsers = () => {
              {   user.role === 'admin' ? 'Admin' :
             <button 
                       onClick={() => handleMakeAdmin(user)}
+                      className="btn bg-orange-600 btn-lg ">
+                        <FaUsers className="text-white text-2xl"></FaUsers>
+                      </button> }
+
+            </td>
+            <td>
+
+             {   user.creator === 'creator' ? 'Creator' :
+            <button 
+                      onClick={() => handleMakeCreator(user)}
                       className="btn bg-orange-600 btn-lg ">
                         <FaUsers className="text-white text-2xl"></FaUsers>
                       </button> }

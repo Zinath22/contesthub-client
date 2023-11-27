@@ -113,7 +113,7 @@ const Login = () => {
                 </div>
                 <div className="mt-5"></div>
                 <div className="mt-5">
-                <button className="w-full  bg-gradient-to-r from-amber-500 to-purple-500 py-3 text-center rounded text-white">Login Now</button>
+                <button className="w-full  bg-gradient-to-r from-teal-500 to-purple-400 py-3 text-center rounded text-white">Login Now</button>
                   <div className="flex text-sm justify-between items-center mt-5">
                     <p className="tmt-2">New To The Website? <Link to={'/register'}><span className="btn-link font-medium text-white">Register</span></Link></p>
                     {/* <p className="btn-link cursor-pointer text-white" >Forgot password?</p> */}
