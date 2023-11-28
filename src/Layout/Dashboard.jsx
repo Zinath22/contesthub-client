@@ -7,8 +7,9 @@ import useCreator from "../Hook/useCreator";
 
 const Dashboard = () => {
     const [isAdmin] = useAdmin();
+    // const isAdmin = true;
     // const isCreator = false;
-    
+
     const [isCreator] = useCreator();
     console.log(isCreator);
 
@@ -29,33 +30,25 @@ const Dashboard = () => {
                 Update Contest</NavLink></li> */}
 
 
-                        </>}
+                        </>
+
+                    }
+                    
+
                     {isCreator &&
                         <>
                             <li><NavLink to="/dashboard/addContest">add Contest</NavLink></li>
-                            <li><NavLink to="/dashboard/"> My Created Contest</NavLink></li>
-                            {/* <li><NavLink to="/dashboard/myProfile"> My Profile</NavLink></li> */}
+                            <li><NavLink to="/dashboard/createdContest"> My Created Contest</NavLink></li>
+                            <li><NavLink to="/dashboard/submittedContest">submitted Contest</NavLink></li>
                         </>
                     }
+
                     {/* divider  */}
                     <div className="divider"></div>
                     <li><NavLink to="/dashboard/regContest">My Registered Contest</NavLink></li>
-            <li><NavLink to="/dashboard/myWinning"> My Winning Contest Page</NavLink></li>
-            <li><NavLink to="/dashboard/myProfile"> My Profile</NavLink></li>
-                    {/* creator  */}
-                    {/* {
-                isCreator? <>
-                  <li><NavLink to="/dashboard/addContest">Add Contest</NavLink></li> */}
-                    {/* <li><NavLink to="/dashboard/myWinning"> My Winning Contest Page</NavLink></li> */}
-                    {/* <li><NavLink to="/dashboard/myProfile"> My Profile</NavLink></li> */}
-                    {/* </> :
+                    <li><NavLink to="/dashboard/myWinning"> My Winning Contest Page</NavLink></li>
+                    <li><NavLink to="/dashboard/myProfile"> My Profile</NavLink></li>
 
-                <>
-                  <li><NavLink to="/dashboard/regContest">My Registered Contest</NavLink></li>
-            <li><NavLink to="/dashboard/myWinning"> My Winning Contest Page</NavLink></li>
-            <li><NavLink to="/dashboard/myProfile"> My Profile</NavLink></li>
-                </> */}
-                    {/* } */}
 
                     <div className="divider"></div>
                     <li>

@@ -20,6 +20,7 @@ import AddContest from "../Pages/CreatorDashboard/AddContest/AddContest";
 import UpdateContest from "../Pages/AdminDashboard/UpdataContest/UpdateContest";
 import Upcoming from "../components/Upcoming/Upcoming";
 import CreatedContest from "../Pages/CreatorDashboard/CreatedContest/CreatedContest";
+import ContestSubmitted from "../Pages/CreatorDashboard/ContestSubmitted/ContestSubmitted";
 
 
  export const router = createBrowserRouter([
@@ -103,6 +104,10 @@ import CreatedContest from "../Pages/CreatorDashboard/CreatedContest/CreatedCont
         {
           path: 'createdContest',
           element: <CreatedContest></CreatedContest>
+        },
+        {
+          path: 'submittedContest',
+          element: <ContestSubmitted></ContestSubmitted>
         }
       ]
     }

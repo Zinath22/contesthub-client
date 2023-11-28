@@ -35,7 +35,7 @@ const MyProfile = () => {
         console.log(contestRes.data);
         if (contestRes.data.modifiedCount > 0) {
         //   reset()
-        updateUserProfile(data.name, data.photoURL)
+        updateUserProfile(data.displayName, data.photoURL)
           Swal.fire({
             position: "top-end",
             icon: "success",
