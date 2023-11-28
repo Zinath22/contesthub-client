@@ -54,7 +54,7 @@ const Banner = () => {
           />
 
 
-          {/* {
+          {
             filteredItems.map((item) => (
               <div key={item._id} >
                 <button
@@ -65,7 +65,7 @@ const Banner = () => {
           </button>
               </div>
             ))
-          } */}
+          }
      
    </div>
  </div>

@@ -22,11 +22,13 @@ const Login = () => {
         signIn(email, password)
           .then((result) => {
             console.log(result.user);
-            Swal.fire(
-              'Success!',
-              'Login successful',
-              'success'
-            );
+            Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: "log in successfull",
+              showConfirmButton: false,
+              timer: 1500
+            });
     
             // Reset the form fields
             e.target.email.value = "";

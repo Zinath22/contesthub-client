@@ -19,6 +19,7 @@ import ManageContest from "../Pages/AdminDashboard/ManageContest/ManageContest";
 import AddContest from "../Pages/CreatorDashboard/AddContest/AddContest";
 import UpdateContest from "../Pages/AdminDashboard/UpdataContest/UpdateContest";
 import Upcoming from "../components/Upcoming/Upcoming";
+import CreatedContest from "../Pages/CreatorDashboard/CreatedContest/CreatedContest";
 
 
  export const router = createBrowserRouter([
@@ -42,13 +43,13 @@ import Upcoming from "../components/Upcoming/Upcoming";
         {
           path: '/contestDetails/:id',
           element: <PrivateRoute><ContestDetails></ContestDetails></PrivateRoute>,
-          // loader: ({params}) => fetch(`http://localhost:5000/contest/${params.id}`)
-          loader: ({params}) => fetch(`http://localhost:5000/contest/${params.id}`)
+          // loader: ({params}) => fetch(`https://contesthub-server.vercel.app/contest/${params.id}`)
+          loader: ({params}) => fetch(`https://contesthub-server.vercel.app/contest/${params.id}`)
         },
         {
           path: '/payment/:id',
           element: <Payment></Payment>,
-          loader: ({params}) => fetch(`http://localhost:5000/contest/${params.id}`)
+          loader: ({params}) => fetch(`https://contesthub-server.vercel.app/contest/${params.id}`)
         },
         {
             path: '/register',
@@ -91,13 +92,17 @@ import Upcoming from "../components/Upcoming/Upcoming";
         {
           path: 'updateContest/:id',
           element: <UpdateContest></UpdateContest>,
-          loader: ({params}) => fetch(`http://localhost:5000/contest/${params.id}`)
+          loader: ({params}) => fetch(`https://contesthub-server.vercel.app/contest/${params.id}`)
         },
 
         // creator 
         {
           path: 'addContest',
           element: <AddContest></AddContest>
+        },
+        {
+          path: 'createdContest',
+          element: <CreatedContest></CreatedContest>
         }
       ]
     }

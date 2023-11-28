@@ -25,15 +25,15 @@ const Jobs = () => {
   console.log(contest);
   // const contest = useLoaderData();
 //   console.log('cc',contest);
-  const itemPerPage = 10;
-  const numberOfPages = Math.ceil(contest/ itemPerPage);
+  // const itemPerPage = 10;
+  // const numberOfPages = Math.ceil(contest/ itemPerPage);
 //  const pages = []
 //   for(let i = 0; i < numberOfPages; i++){
 //     pages.push(i)
 //   }
 //   console.log('pp', pages);
 
-const pages = [...Array(numberOfPages).keys()];
+// const pages = [...Array(numberOfPages).keys()];
 
   const [showFullDescription, setShowFullDescription] = useState(false);
   const handleToggle = () => {
@@ -44,7 +44,7 @@ const pages = [...Array(numberOfPages).keys()];
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:5000/contest');
+        const response = await fetch('https://contesthub-server.vercel.app/contest');
         if (response.ok) {
           const data = await response.json();
           console.log(data);
@@ -246,7 +246,7 @@ const pages = [...Array(numberOfPages).keys()];
 
       
     </div>
-    <div className='pagination'>Pagination</div>
+    {/* <div className='pagination'>Pagination</div> */}
    </div>
   );
 };

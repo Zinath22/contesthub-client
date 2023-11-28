@@ -16,7 +16,7 @@ const ContestDetails = () => {
     // console.log(details);
 
     // useEffect(() => {
-    //     fetch(`http://localhost:5000/contest/${_id}`)
+    //     fetch(`https://contesthub-server.vercel.app/contest/${_id}`)
     //     .then(res => res.json())
     //     .then(data => setDetails(data))
     // }, [])

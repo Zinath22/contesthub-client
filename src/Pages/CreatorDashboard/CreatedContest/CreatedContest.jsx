@@ -1,3 +1,5 @@
+
+
 import { useQuery } from "@tanstack/react-query";
 import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 import UseAxiosSecure from "../../../Hook/UseAxiosSecure";
@@ -6,7 +8,7 @@ import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
 
-const ManageContest = () => {
+const CreatedContest = () => {
     const axiosSecure = UseAxiosSecure();
     const { data: contest = [], refetch } = useQuery({
         queryKey: ['manageContest'],
@@ -119,18 +121,10 @@ const ManageContest = () => {
                                     <td className="text-right">${item.prize}</td>
                                     <td>
 
-                                        {/* {contest.status === 'accepted' ? 'accepted' :
+                                        
                                             <button
                                                 onClick={() => handleMakeContest(item)}
-                                                className=" btn m-3 font-semibold underline ">
-
-
-                                                sdasdf {contest.status}
-
-                                            </button>} */}
-                                            <button
-                                                onClick={() => handleMakeContest(item)}
-                                                className=" btn btn-outline ">
+                                                className=" btn m-3 btn-outline ">
 
 
                                                 {item.status}
@@ -158,10 +152,11 @@ const ManageContest = () => {
 
 
                     </table>
+                   <div className="text-center justify-center items-center my-7"> <button className="btn bg-teal-500">Submission</button></div>
                 </div>
             </div>
         </div>
     );
 };
 
-export default ManageContest;
+export default CreatedContest;
