@@ -6,7 +6,7 @@ import PopularContest from "../PopularContest/PopularContest";
 const Home = () => {
     return (
         <div>
-            <Banner></Banner>
+            <Banner ></Banner>
             <PopularContest></PopularContest>
             <GrandPrize></GrandPrize>
         </div>

@@ -35,7 +35,7 @@ const Banner = () => {
 
   // Step 3: Filter the allItem array based on the search query
   const filteredItems = allItem.filter((item) => {
-      return item.food_name.toLowerCase().includes(searchQuery.toLowerCase());
+      return item.tag.toLowerCase().includes(searchQuery.toLowerCase());
   });
 
     return (
@@ -52,12 +52,20 @@ const Banner = () => {
             value={searchQuery}
             onChange={handleSearchChange}
           />
-          <button
+
+
+          {/* {
+            filteredItems.map((item) => (
+              <div key={item._id} >
+                <button
             className="bg-[#FF444A] text-white rounded-r-lg border-l-0 py-2 px-4"
-            // onClick={searchName}
+           
           >
             Search
           </button>
+              </div>
+            ))
+          } */}
      
    </div>
  </div>

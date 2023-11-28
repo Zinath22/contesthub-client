@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 import UseAxiosSecure from "../../../Hook/UseAxiosSecure";
-import { FaEdit, FaTrashAlt } from "react-icons/fa";
+import { FaEdit, FaTrashAlt} from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
@@ -18,6 +18,24 @@ const ManageContest = () => {
     }) ;
 
     console.log(contest);
+
+    const handleMakeContest = item => {
+        axiosSecure.patchForm(`/contest/${item._id}`)
+        .then(res => {
+            console.log(res.data)
+            if(res.data.modifiedCount > 0){
+                refetch();
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: `${item.tag} is an Admin Now`,
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+            }
+        })
+    }
+
 
     const handleDeleteItem = (item) => {
         Swal.fire({
@@ -63,8 +81,9 @@ const ManageContest = () => {
                                 </th>
                                 <th>Image</th>
                                 <th>Contest Type</th>
-                                <th>Fee</th>
+                                {/* <th>Fee</th> */}
                                 <th>Prize</th>
+                                <th>Approve</th>
                                 <th>Update</th>
                                 <th>Delete</th>
                             </tr>
@@ -85,9 +104,18 @@ const ManageContest = () => {
                                     <td>
                                         {item.tag}
                                     </td>
-                                    <td className="text-right">${item.fee}</td>
+                                    {/* <td className="text-right">${item.fee}</td> */}
                                     <td className="text-right">${item.prize}</td>
                                     <td>
+                                        
+                                    {   contest.pending === 'accepted' ? 'accepted' :
+            <button 
+                      onClick={() => handleMakeContest(item)}
+                      className=" m-3 font-semibold underline ">
+                        {/* <FaUserCheck className="text-white text-2xl"></FaUserCheck> */}
+                     Pending
+                      </button> }
+
                                         <Link to={`/dashboard/updateContest/${item._id}`}>
                                             <button
                                                 className="btn btn-ghost btn-lg bg-teal-500">

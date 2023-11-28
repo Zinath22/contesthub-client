@@ -4,16 +4,38 @@ import 'react-tabs/style/react-tabs.css';
 // import { motion } from "framer-motion";
 // import { AiOutlineArrowRight } from 'react-icons/ai';
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link} from 'react-router-dom';
+import UseAxiosSecure from '../../Hook/UseAxiosSecure';
+import { useQuery } from '@tanstack/react-query';
 const Jobs = () => {
   const [contests, setContests] = useState([]);
   const [business, setBusiness] = useState([]);
   const [medical, setMedical] = useState([]);
   const [artical, setArtical] = useState([]);
   const [gaming, setGaming] = useState([]);
+  const axiosSecure = UseAxiosSecure();
+  const {data: contest =[] , refetch} = useQuery({
+      queryKey: ['manageContest'],
+      queryFn: async () => {
+          const res = await axiosSecure.get('/contest');
+          return res.data 
+      }
+     
+  }) ;
+  console.log(contest);
+  // const contest = useLoaderData();
+//   console.log('cc',contest);
+  const itemPerPage = 10;
+  const numberOfPages = Math.ceil(contest/ itemPerPage);
+//  const pages = []
+//   for(let i = 0; i < numberOfPages; i++){
+//     pages.push(i)
+//   }
+//   console.log('pp', pages);
+
+const pages = [...Array(numberOfPages).keys()];
 
   const [showFullDescription, setShowFullDescription] = useState(false);
-
   const handleToggle = () => {
     setShowFullDescription(!showFullDescription);
   };
@@ -49,11 +71,12 @@ const Jobs = () => {
     };
 
     fetchData();
-  }, []);
+  }, [gaming, artical, business, medical]);
 
 
   return (
-    <div className='lg:p-28'>
+   <div>
+     <div className='lg:p-28'>
       <Tabs>
         <TabList>
           <Tab>Business</Tab>
@@ -223,6 +246,8 @@ const Jobs = () => {
 
       
     </div>
+    <div className='pagination'>Pagination</div>
+   </div>
   );
 };
 

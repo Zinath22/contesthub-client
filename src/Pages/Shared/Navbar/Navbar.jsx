@@ -23,6 +23,7 @@ const Navbar = () => {
 
     <li><Link to="/">Home</Link></li>
     <li><Link to="/allContest">All Contest</Link></li>
+    <li><Link to="/upcomingContest">Upcoming Contest</Link></li>
 
     {user ? '' : <li><Link to="/login">Login</Link></li>}
 

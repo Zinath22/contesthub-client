@@ -18,6 +18,7 @@ import ManageUser from "../Pages/AdminDashboard/ManageUser/ManageUser";
 import ManageContest from "../Pages/AdminDashboard/ManageContest/ManageContest";
 import AddContest from "../Pages/CreatorDashboard/AddContest/AddContest";
 import UpdateContest from "../Pages/AdminDashboard/UpdataContest/UpdateContest";
+import Upcoming from "../components/Upcoming/Upcoming";
 
 
  export const router = createBrowserRouter([
@@ -33,6 +34,10 @@ import UpdateContest from "../Pages/AdminDashboard/UpdataContest/UpdateContest";
         {
           path: '/allContest',
           element: <AllContest></AllContest>
+        },
+        {
+          path: '/upcomingContest',
+          element: <Upcoming></Upcoming>
         },
         {
           path: '/contestDetails/:id',
