@@ -8,9 +8,9 @@ import useCreator from "../Hook/useCreator";
 const Dashboard = () => {
     const [isAdmin] = useAdmin();
     // const isAdmin = true;
-    // const isCreator = false;
+    const isCreator = true;
 
-    const [isCreator] = useCreator();
+    // const [isCreator] = useCreator();
     console.log(isCreator);
 
     return (

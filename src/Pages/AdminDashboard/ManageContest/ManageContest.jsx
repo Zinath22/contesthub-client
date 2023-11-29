@@ -4,9 +4,11 @@ import UseAxiosSecure from "../../../Hook/UseAxiosSecure";
 import { FaEdit, FaTrashAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+// import { useState } from "react";
 
 
 const ManageContest = () => {
+    // const {creator} = useLoaderData()
     const axiosSecure = UseAxiosSecure();
     const { data: contest = [], refetch } = useQuery({
         queryKey: ['manageContest'],
@@ -17,18 +19,38 @@ const ManageContest = () => {
 
     });
 
-    // const itemPerPage = 9;
-    // const numberOfPages = Math.ceil(contest / itemPerPage);
+    // const [itemPerPage, setItemPerPage] = useState(9);
 
-    // const pages = []
-    //          for(let i = 0; i < numberOfPages; i++){
-    //       pages.push(i)
-    //  }
-    // console.log('pp', pages);
+    const itemPerPage = 9;
+    const numberOfPages = Math.ceil(contest / itemPerPage);
 
-    // const pages = [...Arraay(numberOfPages).keys()];
+    const pages = []
+             for(let i = 0; i < numberOfPages; i++){
+          pages.push(i)
+     }
+    console.log('pp', pages);
+
+    // const pages = [...Array(numberOfPages).keys()];
 
     console.log('asdfgh',contest);
+
+    // const handleItemsPerPage = e => {
+    //     const val = parseInt(e.target.value);
+    //     setItemsPerPage(val);
+    //     setCurrentPage(0);
+    // }
+
+    // const handlePrevPage = () => {
+    //     if (currentPage > 0) {
+    //         setCurrentPage(currentPage - 1);
+    //     }
+    // }
+
+    // const handleNextPage = () => {
+    //     if (currentPage < pages.length - 1) {
+    //         setCurrentPage(currentPage + 1);
+    //     }
+    // }
    
     const handleMakeContest = item => {
         axiosSecure.patch(`/contest/creator/${item._id}`)
@@ -160,6 +182,24 @@ const ManageContest = () => {
                     </table>
                 </div>
             </div>
+            {/* <div className='pagination'>
+                <p>Current page: {currentPage}</p>
+                <button onClick={handlePrevPage}>Prev</button>
+                {
+                    pages.map(page => <button
+                        className={currentPage === page ? 'selected' : undefined}
+                        onClick={() => setCurrentPage(page)}
+                        key={page}
+                    >{page}</button>)
+                }
+                <button onClick={handleNextPage}>Next</button>
+                <select value={itemPerPage} onChange={handleItemsPerPage} name="" id="">
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="20">20</option>
+                    <option value="50">50</option>
+                </select>
+            </div> */}
         </div>
     );
 };

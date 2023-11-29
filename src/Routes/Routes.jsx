@@ -106,8 +106,9 @@ import ContestSubmitted from "../Pages/CreatorDashboard/ContestSubmitted/Contest
           element: <CreatedContest></CreatedContest>
         },
         {
-          path: 'submittedContest',
-          element: <ContestSubmitted></ContestSubmitted>
+          path: 'submittedContest/:id',
+          element: <ContestSubmitted></ContestSubmitted> ,
+          loader: ({params}) => fetch(`http://localhost:5000/payments/${params.id}`)
         }
       ]
     }

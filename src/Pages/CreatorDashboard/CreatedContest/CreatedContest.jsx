@@ -6,9 +6,12 @@ import UseAxiosSecure from "../../../Hook/UseAxiosSecure";
 import { FaEdit, FaTrashAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import { useContext } from "react";
+import { AuthContext } from "../../../providers/AuthProvider";
 
 
 const CreatedContest = () => {
+    const {user} = useContext(AuthContext);
     const axiosSecure = UseAxiosSecure();
     const { data: contest = [], refetch } = useQuery({
         queryKey: ['manageContest'],
@@ -31,6 +34,9 @@ const CreatedContest = () => {
     // const pages = [...Arraay(numberOfPages).keys()];
 
     console.log('asdfgh',contest);
+
+    const filterContest = contest.filter((item) => item.email === user?.email);
+    console.log(12,filterContest);
    
     const handleMakeContest = item => {
         axiosSecure.patch(`/contest/creator/${item._id}`)
@@ -81,7 +87,7 @@ const CreatedContest = () => {
     }
     return (
         <div>
-            <SectionTitle heading={'Manage Contset'}></SectionTitle>
+            <SectionTitle heading={'Created Contset'}></SectionTitle>
 
             <div>
                 <div className="overflow-x-auto">
@@ -103,7 +109,7 @@ const CreatedContest = () => {
                         </thead>
                         <tbody>
                             {
-                                contest.map((item, index) => <tr key={item._id}>
+                                filterContest.map((item, index) => <tr key={item._id}>
                                     <td>
                                         {index + 1}
                                     </td>
@@ -146,16 +152,19 @@ const CreatedContest = () => {
                                             <FaTrashAlt className="text-red-600"></FaTrashAlt>
                                         </button>
                                     </td>
+                                    <td>
+                                    <Link to={`/dashboard/submittedContest/${item._id}`}><button className="btn bg-teal-500">Submission</button></Link>
+                                    </td>
                                 </tr>)
                             }
                         </tbody>
 
 
                     </table>
-                   <div className="text-center justify-center items-center my-7">
+                   {/* <div className="text-center justify-center items-center my-7">
                      <Link to='/dashboard/submittedContest'><button className="btn bg-teal-500">Submission</button></Link>
                      
-                     </div>
+                     </div> */}
                 </div>
             </div>
         </div>

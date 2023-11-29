@@ -7,8 +7,8 @@ import { AuthContext } from "../../../providers/AuthProvider";
 // import useAxiosPublic from "../../../Hook/useAxiosPublic/useAxiosPublic";
 
 const AddContest = () => {
-const {user} = useContext(AuthContext);
-  const { register, handleSubmit , reset} = useForm()
+  const { user } = useContext(AuthContext);
+  const { register, handleSubmit, reset } = useForm()
   const axiosSecure = useAxiosSecure();
   // const axiosPublic = useAxiosPublic();
 
@@ -21,7 +21,7 @@ const {user} = useContext(AuthContext);
 
 
     const contestItem = {
-      name : user.displayName,
+      name: user.displayName,
       email: user.email,
       contest_name: data.contest_name,
       img: data.img,
@@ -34,7 +34,7 @@ const {user} = useContext(AuthContext);
       status: 'pending'
     }
 
- 
+
 
     const contestRes = await axiosSecure.post('/contest', contestItem);
     console.log(contestRes.data);
@@ -53,145 +53,145 @@ const {user} = useContext(AuthContext);
 
 
 
-return (
-  <div>
-    <SectionTitle heading={'Add Contest'}></SectionTitle>
+  return (
+    <div>
+      <SectionTitle heading={'Add Contest'}></SectionTitle>
 
-    <div className="mx-5">
+      <div className="mx-5">
 
-      <form onSubmit={handleSubmit(onSubmit)}>
-
-
-        <div className="flex gap-5">
+        <form onSubmit={handleSubmit(onSubmit)}>
 
 
-          <div className="form-control w-full">
-            <label className="label">
-              <span className="label-text">Contest Name</span>
+          <div className="flex gap-5">
 
-            </label>
-            <input type="text" placeholder="Contest Name"
-              {...register('contest_name', { required: true })}
-              required
-              className="input input-bordered w-full " />
+
+            <div className="form-control w-full">
+              <label className="label">
+                <span className="label-text">Contest Name</span>
+
+              </label>
+              <input type="text" placeholder="Contest Name"
+                {...register('contest_name', { required: true })}
+                required
+                className="input input-bordered w-full " />
+
+            </div>
+
+            <div className="form-control w-full">
+              <label className="label">
+                <span className="label-text">Image</span>
+
+              </label>
+              <input type="text" placeholder="Image"
+                {...register('img', { required: true })}
+
+                className="input input-bordered w-full " />
+
+            </div>
+          </div>
+          {/* types  */}
+          <div className="flex gap-5">
+            <div className="form-control w-full">
+              <label className="label">
+                <span className="label-text">Type</span>
+
+              </label>
+
+              <select defaultValue="default" {...register('tag', { required: true })}
+
+                className="select select-bordered w-full ">
+                <option disabled value="default">Select a Contest</option>
+                <option value="business">business</option>
+                <option value="medical">medical</option>
+                <option value="artical">article</option>
+                <option value="gaming">gaming</option>
+
+              </select>
+
+            </div>
+            {/* price  */}
+
+
+            <div className="form-control w-full">
+              <label className="label">
+                <span className="label-text">Fee</span>
+
+              </label>
+              <input type="number" placeholder="Fee"
+                {...register('fee', { required: true })}
+                className="input input-bordered w-full " />
+
+            </div>
 
           </div>
 
-          <div className="form-control w-full">
-            <label className="label">
-              <span className="label-text">Image</span>
 
-            </label>
-            <input type="text" placeholder="Image"
-              {...register('img', { required: true })}
+          <div className="flex gap-5">
 
-              className="input input-bordered w-full " />
+            {/* description  */}
+            <div className="form-control w-full">
+              <label className="label">
+                <span className="label-text">Contest Description</span>
 
-          </div>
-        </div>
-        {/* types  */}
-        <div className="flex gap-5">
-          <div className="form-control w-full">
-            <label className="label">
-              <span className="label-text">Type</span>
+              </label>
+              <input type="text" placeholder="Contest Description"
+                {...register('description', { required: true })}
+                className="input input-bordered w-full " />
 
-            </label>
+            </div>
 
-            <select defaultValue="default" {...register('tag', { required: true })}
+            {/* instraction  */}
 
-              className="select select-bordered w-full ">
-              <option disabled value="default">Select a Contest</option>
-              <option value="business">business</option>
-              <option value="medical">medical</option>
-              <option value="artical">article</option>
-              <option value="gaming">gaming</option>
+            <div className="form-control w-full">
+              <label className="label">
+                <span className="label-text">Instruction</span>
 
-            </select>
+              </label>
+              <input type="text" placeholder="Instruction"
+                {...register('instruction', { required: true })}
+                className="input input-bordered w-full " />
 
-          </div>
-          {/* price  */}
-
-
-          <div className="form-control w-full">
-            <label className="label">
-              <span className="label-text">Fee</span>
-
-            </label>
-            <input type="number" placeholder="Fee"
-              {...register('fee', { required: true })}
-              className="input input-bordered w-full " />
-
+            </div>
           </div>
 
-        </div>
 
 
-        <div className="flex gap-5">
+          <div className="flex gap-5">
 
-          {/* description  */}
-          <div className="form-control w-full">
-            <label className="label">
-              <span className="label-text">Contest Description</span>
+            {/* prize  */}
+            <div className="form-control w-full">
+              <label className="label">
+                <span className="label-text">Prize Money</span>
 
-            </label>
-            <input type="text" placeholder="Contest Description"
-              {...register('description', { required: true })}
-              className="input input-bordered w-full " />
+              </label>
+              <input type="text" placeholder="Prize Money"
+                {...register('prize', { required: true })}
+                className="input input-bordered w-full " />
 
+            </div>
+
+            {/* deadline */}
+
+            <div className="form-control w-full">
+              <label className="label">
+                <span className="label-text">Deadline</span>
+
+              </label>
+              <input type="date" placeholder="Deadline"
+                {...register('deadline', { required: true })}
+                className="input input-bordered w-full " />
+
+            </div>
           </div>
 
-          {/* instraction  */}
-
-          <div className="form-control w-full">
-            <label className="label">
-              <span className="label-text">Instruction</span>
-
-            </label>
-            <input type="text" placeholder="Instruction"
-              {...register('instruction', { required: true })}
-              className="input input-bordered w-full " />
-
-          </div>
-        </div>
 
 
+          <button className="btn bg-teal-500 my-4 justify-center items-center ">Add Contest</button>
+        </form>
 
-        <div className="flex gap-5">
-
-          {/* prize  */}
-          <div className="form-control w-full">
-            <label className="label">
-              <span className="label-text">Prize Money</span>
-
-            </label>
-            <input type="text" placeholder="Prize Money"
-              {...register('prize', { required: true })}
-              className="input input-bordered w-full " />
-
-          </div>
-
-          {/* deadline */}
-
-          <div className="form-control w-full">
-            <label className="label">
-              <span className="label-text">Deadline</span>
-
-            </label>
-            <input type="date" placeholder="Deadline"
-              {...register('deadline', { required: true })}
-              className="input input-bordered w-full " />
-
-          </div>
-        </div>
-
-
-
-        <button className="btn bg-teal-500 my-4 justify-center items-center ">Add Contest</button>
-      </form>
-
+      </div>
     </div>
-  </div>
-);
+  );
 };
 
 export default AddContest;
