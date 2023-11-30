@@ -14,13 +14,16 @@ import Dashboard from "../Layout/Dashboard";
 import RegContest from "../Pages/Dashboard/RegContest/RegContest";
 import MyWinning from "../Pages/Dashboard/MyWinning/MyWinning";
 import MyProfile from "../Pages/Dashboard/MyProfile/MyProfile";
-import ManageUser from "../Pages/AdminDashboard/ManageUser/ManageUser";
+
 import ManageContest from "../Pages/AdminDashboard/ManageContest/ManageContest";
 import AddContest from "../Pages/CreatorDashboard/AddContest/AddContest";
 import UpdateContest from "../Pages/AdminDashboard/UpdataContest/UpdateContest";
 import Upcoming from "../components/Upcoming/Upcoming";
 import CreatedContest from "../Pages/CreatorDashboard/CreatedContest/CreatedContest";
 import ContestSubmitted from "../Pages/CreatorDashboard/ContestSubmitted/ContestSubmitted";
+import AdminRoute from "./AdminRoute";
+import ManageUsers from "../Pages/AdminDashboard/ManageUser/ManageUser";
+import SubmittedContest from "../Pages/SubmittedContest";
 
 
  export const router = createBrowserRouter([
@@ -47,11 +50,13 @@ import ContestSubmitted from "../Pages/CreatorDashboard/ContestSubmitted/Contest
           // loader: ({params}) => fetch(`https://contesthub-server.vercel.app/contest/${params.id}`)
           loader: ({params}) => fetch(`https://contesthub-server.vercel.app/contest/${params.id}`)
         },
+        
         {
-          path: '/payment/:id',
+          path: 'payment/:id',
           element: <Payment></Payment>,
           loader: ({params}) => fetch(`https://contesthub-server.vercel.app/contest/${params.id}`)
         },
+       
         {
             path: '/register',
             element: <Register></Register>
@@ -66,6 +71,7 @@ import ContestSubmitted from "../Pages/CreatorDashboard/ContestSubmitted/Contest
       path: 'dashboard',
       element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
       children: [
+
         {
           path: 'regContest',
           element: <RegContest></RegContest>
@@ -83,16 +89,16 @@ import ContestSubmitted from "../Pages/CreatorDashboard/ContestSubmitted/Contest
        
         {
           path: 'manageUser',
-          element: <ManageUser></ManageUser>
+          element: <AdminRoute><ManageUsers></ManageUsers></AdminRoute>
         },
         {
           path: 'manageContest',
-          element: <ManageContest></ManageContest>
+          element: <AdminRoute><ManageContest></ManageContest></AdminRoute>
         },
 
         {
           path: 'updateContest/:id',
-          element: <UpdateContest></UpdateContest>,
+          element: <AdminRoute><UpdateContest></UpdateContest></AdminRoute>,
           loader: ({params}) => fetch(`https://contesthub-server.vercel.app/contest/${params.id}`)
         },
 
@@ -104,6 +110,11 @@ import ContestSubmitted from "../Pages/CreatorDashboard/ContestSubmitted/Contest
         {
           path: 'createdContest',
           element: <CreatedContest></CreatedContest>
+        },
+        {
+          path: 'submittedContest',
+          element: <SubmittedContest></SubmittedContest> ,
+          
         },
         {
           path: 'submittedContest/:id',

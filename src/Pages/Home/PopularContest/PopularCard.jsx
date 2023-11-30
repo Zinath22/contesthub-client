@@ -21,8 +21,8 @@ const [showFullDescription, setShowFullDescription] = useState(false);
             <div className="card card-compact  w-96 my-7 bg-gray-200 shadow-xl">
   <figure><img className="w-full h-[180px]" src={img} alt="" /></figure>
   <div className="card-body">
-    <h2 className="card-title text-teal-600">{contest_name}</h2>
-    <h2 className="card-title text-teal-600">{participants_count}</h2>
+    <h2 className="card-title text-teal-600" data-aos='flip-left'>{contest_name}</h2>
+    <h2 className="card-title text-teal-600" data-aos='flip-left'>{participants_count}</h2>
     
 
 <p>

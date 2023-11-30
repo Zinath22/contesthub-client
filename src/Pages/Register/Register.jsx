@@ -7,7 +7,7 @@ import { AuthContext } from "../../providers/AuthProvider";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import useAxiosPublic from "../../Hook/useAxiosPublic/useAxiosPublic";
-import { Helmet } from "react-helmet-async";
+
 // import app from "../../firebase/firebase.config";
 
 
@@ -27,11 +27,15 @@ const Register = () => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
                 updateUserProfile(data.name, data.photoURL)
-                    .then(() => {
+                    .then(() => { 
                       //  create user entry in the database 
                       const userInfo = {
                         name: data.name,
-                        email: data.email
+                        email: data.email,
+                        role: 'user',
+                        // bestCreator: true,
+                      photo: data.photoURL
+                        
                       }
                 axiosPublic.post('/users',userInfo)
                 .then(res => {
@@ -73,7 +77,7 @@ const Register = () => {
     return (
       <div>
         {/* <Helmet><title>Bistro Boss | SignUp</title></Helmet> */}
-        <Helmet><title>Contest | Register</title></Helmet>
+        {/* <Helmet><title>Contest | Register</title></Helmet> */}
         <div className="lg:w-1/2 w-full  my-10  font-bold mx-auto  py-10 px-12 bg-white ">
         <h2 className="text-2xl text-center mb-4">Register</h2>
         <p className="mb-4 text-lg text-center">

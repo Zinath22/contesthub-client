@@ -1,5 +1,5 @@
 import { loadStripe } from "@stripe/stripe-js";
-import SectionTitle from "../../components/SectionTitle/SectionTitle";
+// import SectionTitle from "../../components/SectionTitle/SectionTitle";
 import { Elements } from "@stripe/react-stripe-js";
 import CheckOutForm from "./CheckOutForm";
 
@@ -8,7 +8,7 @@ const stripePromise = loadStripe(import.meta.env.VITE_Payment_Gateway_PK);
 const Payment = () => {
     return (
         <div>
-            <SectionTitle heading={'payment'}></SectionTitle>
+            {/* <SectionTitle heading={'payment'}></SectionTitle> */}
             <div>
                 <Elements stripe={stripePromise}>
                      <CheckOutForm></CheckOutForm>

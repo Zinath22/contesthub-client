@@ -1,75 +1,60 @@
+import { useContext } from "react";
+import { AuthContext } from "../providers/AuthProvider";
+import useAxiosSecure from "../Hook/UseAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
-import SectionTitle from "../../../components/SectionTitle/SectionTitle";
-import UseAxiosSecure from "../../../Hook/UseAxiosSecure";
-import { FaEdit, FaTrashAlt } from "react-icons/fa";
-import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
-// import { useState } from "react";
+import SectionTitle from "../components/SectionTitle/SectionTitle";
+import { Link } from "react-router-dom";
+import { FaEdit, FaTrashAlt } from "react-icons/fa";
 
 
-const ManageContest = () => {
-    // const {creator} = useLoaderData()
-    const axiosSecure = UseAxiosSecure();
+
+
+
+const SubmittedContest = () => {
+    const {user} = useContext(AuthContext);
+    const axiosSecure = useAxiosSecure();
     const { data: contest = [], refetch } = useQuery({
         queryKey: ['manageContest'],
         queryFn: async () => {
-            const res = await axiosSecure.get('/contest');
+            const res = await axiosSecure.get('/Payments');
             return res.data
         }
 
     });
 
+    // const itemPerPage = 9;
+    // const numberOfPages = Math.ceil(contest / itemPerPage);
 
+    // const pages = []
+    //          for(let i = 0; i < numberOfPages; i++){
+    //       pages.push(i)
+    //  }
+    // console.log('pp', pages);
 
-    // const [itemPerPage, setItemPerPage] = useState(9);
-
-    const itemPerPage = 9;
-    const numberOfPages = Math.ceil(contest / itemPerPage);
-
-    const pages = []
-             for(let i = 0; i < numberOfPages; i++){
-          pages.push(i)
-     }
-    console.log('pp', pages);
-
-    // const pages = [...Array(numberOfPages).keys()];
+    // const pages = [...Arraay(numberOfPages).keys()];
 
     console.log('asdfgh',contest);
 
-    // const handleItemsPerPage = e => {
-    //     const val = parseInt(e.target.value);
-    //     setItemsPerPage(val);
-    //     setCurrentPage(0);
-    // }
-
-    // const handlePrevPage = () => {
-    //     if (currentPage > 0) {
-    //         setCurrentPage(currentPage - 1);
-    //     }
-    // }
-
-    // const handleNextPage = () => {
-    //     if (currentPage < pages.length - 1) {
-    //         setCurrentPage(currentPage + 1);
-    //     }
-    // }
+    const filterContest = contest.filter((item) => item.email === user?.email);
+    console.log(12,filterContest);
    
-    const handleMakeContest = item => {
-        axiosSecure.patch(`/contest/creator/${item._id}`)
-            .then(res => {
-                console.log(res.data)
-                if (res.data.modifiedCount > 0) {
-                    refetch();
-                    Swal.fire({
-                        position: "top-end",
-                        icon: "success",
-                        title: `${item.tag} is an Admin Now`,
-                        showConfirmButton: false,
-                        timer: 1500
-                    })
-                }
-            })
-    }
+    // const handleMakeContest = item => {
+    //     axiosSecure.patch(`/contest/creator/${item._id}`)
+    //         .then(res => {
+    //             console.log(res.data)
+    //             if (res.data.modifiedCount > 0) {
+    //                 refetch();
+    //                 Swal.fire({
+    //                     position: "top-end",
+    //                     icon: "success",
+    //                     title: `${item.tag} is an Admin Now`,
+    //                     showConfirmButton: false,
+    //                     timer: 1500
+    //                 })
+    //             }
+    //         })
+    // }
 
 
     const handleDeleteItem = (item) => {
@@ -103,7 +88,7 @@ const ManageContest = () => {
     }
     return (
         <div>
-            <SectionTitle heading={'Manage Contset'}></SectionTitle>
+            <SectionTitle heading={'Submitted Contest'}></SectionTitle>
 
             <div>
                 <div className="overflow-x-auto">
@@ -116,7 +101,7 @@ const ManageContest = () => {
                                 </th>
 
                                 <th>Contest Type</th>
-                                <th>Tag</th>
+                                {/* <th>Fee</th> */}
                                 <th>Prize</th>
                                 <th>Approve</th>
                                 <th>Update</th>
@@ -125,14 +110,14 @@ const ManageContest = () => {
                         </thead>
                         <tbody>
                             {
-                                contest.map((item, index) => <tr key={item._id}>
+                                filterContest.map((item, index) => <tr key={item._id}>
                                     <td>
                                         {index + 1}
                                     </td>
                                     <td>
                                         <div className="flex items-center gap-3">
                                             <div className="avatar">
-{item.contest_name}
+
                                             </div>
                                         </div>
                                     </td>
@@ -142,13 +127,17 @@ const ManageContest = () => {
                                     {/* <td className="text-right">${item.fee}</td> */}
                                     <td className="text-right">${item.prize}</td>
                                     <td>
-                                            {item.status === "accepted" ? <h1 className="text-green-400">Accepted</h1> : <button
-                                                onClick={() => handleMakeContest(item)}
-                                                className=" btn btn-outline ">
-                                               Approve
-                                            </button>}
-                                            </td>
-                                            <td>
+
+                                        
+                                            <button
+                                                // onClick={() => handleMakeContest(item)}
+                                                className=" btn m-3 btn-outline ">
+
+
+                                                {item.status}
+
+                                            </button>
+
                                         <Link to={`/dashboard/updateContest/${item._id}`}>
                                             <button
                                                 className="btn btn-ghost btn-lg bg-teal-500">
@@ -164,34 +153,23 @@ const ManageContest = () => {
                                             <FaTrashAlt className="text-red-600"></FaTrashAlt>
                                         </button>
                                     </td>
+                                    <td>
+                                    <Link to={`/dashboard/submittedContest/${item._id}`}><button className="btn bg-teal-500">Submission</button></Link>
+                                    </td>
                                 </tr>)
                             }
                         </tbody>
 
 
                     </table>
+                   {/* <div className="text-center justify-center items-center my-7">
+                     <Link to='/dashboard/submittedContest'><button className="btn bg-teal-500">Submission</button></Link>
+                     
+                     </div> */}
                 </div>
             </div>
-            {/* <div className='pagination'>
-                <p>Current page: {currentPage}</p>
-                <button onClick={handlePrevPage}>Prev</button>
-                {
-                    pages.map(page => <button
-                        className={currentPage === page ? 'selected' : undefined}
-                        onClick={() => setCurrentPage(page)}
-                        key={page}
-                    >{page}</button>)
-                }
-                <button onClick={handleNextPage}>Next</button>
-                <select value={itemPerPage} onChange={handleItemsPerPage} name="" id="">
-                    <option value="5">5</option>
-                    <option value="10">10</option>
-                    <option value="20">20</option>
-                    <option value="50">50</option>
-                </select>
-            </div> */}
         </div>
     );
 };
 
-export default ManageContest;
+export default SubmittedContest;

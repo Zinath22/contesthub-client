@@ -11,7 +11,7 @@ import { AuthContext } from "../../../providers/AuthProvider";
 
 
 const CreatedContest = () => {
-    const {user} = useContext(AuthContext);
+    const { user } = useContext(AuthContext);
     const axiosSecure = UseAxiosSecure();
     const { data: contest = [], refetch } = useQuery({
         queryKey: ['manageContest'],
@@ -33,27 +33,27 @@ const CreatedContest = () => {
 
     // const pages = [...Arraay(numberOfPages).keys()];
 
-    console.log('asdfgh',contest);
+    console.log('asdfgh', contest);
 
     const filterContest = contest.filter((item) => item.email === user?.email);
-    console.log(12,filterContest);
-   
-    const handleMakeContest = item => {
-        axiosSecure.patch(`/contest/creator/${item._id}`)
-            .then(res => {
-                console.log(res.data)
-                if (res.data.modifiedCount > 0) {
-                    refetch();
-                    Swal.fire({
-                        position: "top-end",
-                        icon: "success",
-                        title: `${item.tag} is an Admin Now`,
-                        showConfirmButton: false,
-                        timer: 1500
-                    })
-                }
-            })
-    }
+    console.log(12, filterContest);
+
+    // const handleMakeContest = item => {
+    //     axiosSecure.patch(`/contest/creator/${item._id}`)
+    //         .then(res => {
+    //             console.log(res.data)
+    //             if (res.data.modifiedCount > 0) {
+    //                 refetch();
+    //                 Swal.fire({
+    //                     position: "top-end",
+    //                     icon: "success",
+    //                     title: `${item.tag} is an Admin Now`,
+    //                     showConfirmButton: false,
+    //                     timer: 1500
+    //                 })
+    //             }
+    //         })
+    // }
 
 
     const handleDeleteItem = (item) => {
@@ -99,12 +99,15 @@ const CreatedContest = () => {
                                     #
                                 </th>
 
+                                <th></th>
                                 <th>Contest Type</th>
-                                {/* <th>Fee</th> */}
                                 <th>Prize</th>
-                                <th>Approve</th>
+                                <th>Status</th>
                                 <th>Update</th>
                                 <th>Delete</th>
+                                <th>Approve</th>
+
+
                             </tr>
                         </thead>
                         <tbody>
@@ -113,6 +116,7 @@ const CreatedContest = () => {
                                     <td>
                                         {index + 1}
                                     </td>
+
                                     <td>
                                         <div className="flex items-center gap-3">
                                             <div className="avatar">
@@ -120,40 +124,59 @@ const CreatedContest = () => {
                                             </div>
                                         </div>
                                     </td>
+
                                     <td>
-                                        {item.tag}
+                                        {item.contest_name}
                                     </td>
                                     {/* <td className="text-right">${item.fee}</td> */}
+
                                     <td className="text-right">${item.prize}</td>
+
+                                    <td >
+                                       
+                                            {item.status === 'accepted'? <h1 className="text-green-500">{item.status}</h1> : <h1 className="text-orange-500">{item.status}</h1> }
+                                       
+                                    </td>
+
                                     <td>
-
-                                        
+                                        {
+                                            item.status === "accepted" ? 
+                                            <Link to={`/dashboard/updateContest/${item._id}`}>
                                             <button
-                                                onClick={() => handleMakeContest(item)}
-                                                className=" btn m-3 btn-outline ">
-
-
-                                                {item.status}
-
-                                            </button>
-
-                                        <Link to={`/dashboard/updateContest/${item._id}`}>
-                                            <button
-                                                className="btn btn-ghost btn-lg bg-teal-500">
+                                                className="btn btn-ghost  bg-teal-500" disabled>
                                                 <FaEdit className="text-white 
                                         "></FaEdit>
                                             </button>
-                                        </Link>
+                                        </Link> 
+
+                                        : 
+                                        <Link to={`/dashboard/updateContest/${item._id}`}>
+                                            <button
+                                                className="btn btn-info ">
+                                                <FaEdit className="text-white 
+                                        "></FaEdit>
+                                            </button>
+                                        </Link> 
+                                        }
                                     </td>
                                     <td>
-                                        <button
-                                            onClick={() => handleDeleteItem(item)}
-                                            className="btn btn-ghost btn-lg">
-                                            <FaTrashAlt className="text-red-600"></FaTrashAlt>
+                                         {
+                                            item.status === "accepted" ? 
+                                            <button
+                                            className="btn btn-ghost  bg-teal-500" disabled>
+                                            <FaTrashAlt></FaTrashAlt>
                                         </button>
+                                        : 
+                                        <button
+                                        onClick={() => handleDeleteItem(item)}
+                                        className="btn btn-ghost btn-lg">
+                                        <FaTrashAlt className="text-red-600"></FaTrashAlt>
+                                    </button>
+                                        
+                                        }
                                     </td>
                                     <td>
-                                    <Link to={`/dashboard/submittedContest/${item._id}`}><button className="btn bg-teal-500">Submission</button></Link>
+                                        <Link to={`/dashboard/submittedContest/${item._id}`}><button className="btn bg-teal-500">Submission</button></Link>
                                     </td>
                                 </tr>)
                             }
@@ -161,7 +184,7 @@ const CreatedContest = () => {
 
 
                     </table>
-                   {/* <div className="text-center justify-center items-center my-7">
+                    {/* <div className="text-center justify-center items-center my-7">
                      <Link to='/dashboard/submittedContest'><button className="btn bg-teal-500">Submission</button></Link>
                      
                      </div> */}

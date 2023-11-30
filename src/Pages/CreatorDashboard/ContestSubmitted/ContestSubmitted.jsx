@@ -3,8 +3,10 @@ import {  useParams } from "react-router-dom";
 import useAxiosSecure from "../../../Hook/UseAxiosSecure";
 import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 import Swal from "sweetalert2";
+// import usePayments from "../../../Hook/usePayments";
 
 const ContestSubmitted = () => {
+    // const [, refetch ] = usePayments()
   const { id } = useParams();
   const [payments, setPayments] = useState([]);
   const axiosSecure = useAxiosSecure();
@@ -15,6 +17,7 @@ const ContestSubmitted = () => {
         const response = await axiosSecure.get('/payments');
         // Assuming the payment data is an array in the response
         setPayments(response.data);
+        
       } catch (error) {
         console.error("Error fetching payments:", error);
       }
@@ -26,10 +29,10 @@ const ContestSubmitted = () => {
 
   const filterPayments = payments.filter((item) => item.contest_id === id);
 //   const payment = filterPayments[0]._id
-  console.log(23456,filterPayments);
+  console.log(2345678,filterPayments);
 
-  const handleMakeContest = item => {
-    axiosSecure.patch(`/contest/creator/${item._id}`)
+  const handleMakeWinner = submission => {
+    axiosSecure.patch(`/payments/winner/${submission._id}`)
         .then(res => {
             console.log(res.data)
             if (res.data.modifiedCount > 0) {
@@ -37,10 +40,11 @@ const ContestSubmitted = () => {
                 Swal.fire({
                     position: "top-end",
                     icon: "success",
-                    title: `${item.tag} is an Admin Now`,
+                    title: `${submission.email} is an Admin Now`,
                     showConfirmButton: false,
                     timer: 1500
                 })
+                location.reload()
             }
         })
 }
@@ -75,7 +79,7 @@ const ContestSubmitted = () => {
                                         <div className="flex items-center gap-3">
                                             <div className="avatar">
                                                 <div className="mask mask-squircle w-12 h-12">
-                                                    <img src={submission.image} alt="Avatar Tailwind CSS Component" />
+                                                    <img src={submission.imageURL} alt="Avatar Tailwind CSS Component" />
                                                 </div>
                                             </div>
                                         </div>
@@ -91,12 +95,12 @@ const ContestSubmitted = () => {
                                     </td>
                                     {/* <td className="text-right">${item.price}</td> */}
                                     <td>
-                                    <button
-                                                onClick={() => handleMakeContest(submission)}
+                                 {submission.winner === true ? "winner"  : <button
+                                                onClick={() => handleMakeWinner(submission)}
                                                 className=" btn m-3 btn-outline ">
 
-
-                                </button>
+                                Select
+                                </button> }
                                     </td>
                                     <td>
                                        

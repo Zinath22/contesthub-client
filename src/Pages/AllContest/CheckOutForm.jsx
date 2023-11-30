@@ -297,8 +297,11 @@ const CheckOutForm = () => {
 
           // now save the payment in the database 
           const payment = {
-            email: user.email,
+            email: user?.email,
             price: totalPrice,
+            name : user?.name,
+            photo: user?.photoURL,
+            // photo: user?.photo.URL || '',
             transactionId: paymentIntent.id,
             data: new Date(), //utc data convert. use moment js to 
             // cartIds: cart.map(item => item._id),
@@ -311,7 +314,7 @@ const CheckOutForm = () => {
             tag:contestbilling?.tag,
             prize:contestbilling?.prize,
             deadline:contestbilling?.deadline,
-            
+            creator_photo:contestbilling?.photo ,
             status: 'pending',
 
             winner: false
@@ -340,31 +343,34 @@ const CheckOutForm = () => {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-         <SectionTitle heading={'payment'}></SectionTitle>
-         <h1>Fee:${fee}</h1>
-           <CardElement
-        options={{
-          style: {
-            base: {
-              fontSize: '16px',
-              color: '#424770',
-              '::placeholder': {
-                color: '#aab7c4',
-              },
-            },
-            invalid: {
-              color: '#9e2146',
-            },
-          },
-        }}
-      />
-        <button className="btn btn-sm btn-primary my-4" type="submit" disabled={!stripe || !clientSecret}>
-        Pay
-      </button>
-      <p className="text-red-600">{error}</p>
-      {transactionId && <p className="text-green-500">Your  transaction id:{transactionId}</p>}
-        </form>
+       <div>
+        <SectionTitle heading={'Payment'}></SectionTitle>
+         <form onSubmit={handleSubmit}>
+        
+        <h1>Fee:${fee}</h1>
+          <CardElement
+       options={{
+         style: {
+           base: {
+             fontSize: '16px',
+             color: '#424770',
+             '::placeholder': {
+               color: '#aab7c4',
+             },
+           },
+           invalid: {
+             color: '#9e2146',
+           },
+         },
+       }}
+     />
+       <button className="btn btn-sm btn-primary my-4" type="submit" disabled={!stripe || !clientSecret}>
+       Pay
+     </button>
+     <p className="text-red-600">{error}</p>
+     {transactionId && <p className="text-green-500">Your  transaction id:{transactionId}</p>}
+       </form>
+       </div>
     );
 };
 

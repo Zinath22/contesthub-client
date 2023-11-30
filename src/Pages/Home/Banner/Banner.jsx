@@ -2,6 +2,7 @@
 // import { Carousel } from 'react-responsive-carousel';
 
 import { useState } from "react";
+// import axios from 'axios';
 
 // import img1 from "../../../assets/b.jpg"
 // import img2 from "../../../assets/b4.jpg"
@@ -42,7 +43,7 @@ const Banner = () => {
    
 
    <div>
-     <div style={bgImg} className="h-[400px] relative flex flex-col justify-center items-center">
+     <div style={bgImg} className="h-[400px] relative flex flex-col justify-center items-center " >
    
    <div className="justify-center text-center relative z-20">
    <input
