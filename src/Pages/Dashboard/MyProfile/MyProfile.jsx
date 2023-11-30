@@ -1,164 +1,196 @@
+// Import your axios instance for public requests
 
-
-
-import { Link, useNavigate} from "react-router-dom";
-
-
-// import Swal from "sweetalert2";
-import { useForm } from "react-hook-form";
-import Swal from "sweetalert2";
-
-import { AuthContext } from "../../../providers/AuthProvider";
 import { useContext } from "react";
-import UseAxiosSecure from "../../../Hook/UseAxiosSecure";
-// import app from "../../firebase/firebase.config";
+import { AuthContext } from "../../../providers/AuthProvider";
+import { useForm } from "react-hook-form";
+import { Link, useNavigate } from "react-router-dom";
+import useAxiosPublic from "../../../Hook/useAxiosPublic/useAxiosPublic";
+import Swal from "sweetalert2";
+import { useQuery } from "@tanstack/react-query";
+import useAxiosSecure from "../../../Hook/UseAxiosSecure";
+import SectionTitle from "../../../components/SectionTitle/SectionTitle";
+import { Bar, BarChart, CartesianGrid, Cell, XAxis, YAxis } from "recharts";
 
 
+const colors = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', 'red', 'pink'];
+// const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
 
 const MyProfile = () => {
+  const { user, updateUserProfile } = useContext(AuthContext); // Assuming you have a UserContext
+  const { register, handleSubmit, reset, formState: { errors } } = useForm();
+  const navigate = useNavigate();
+  const axiosPublic = useAxiosPublic();
+  const axiosSecure = useAxiosSecure();
+  const { data: allUsers = [], } = useQuery({
+    queryKey: ['updateuser'],
+    queryFn: async () => {
+      const res = await axiosSecure.get('/users');
+      return res.data
+    }
+
+  });
+//  console.log('uu', allUsers);
+ const filterUser = allUsers.find(item => item.email === user?.email)
 
 
-    // const axiosPublic = UseAxiosPublic();
-    const { register, handleSubmit,  formState: { errors } } = useForm();
-    const { user,createUser,logOut, updateUserProfile } = useContext(AuthContext)
-    const navigate = useNavigate();
-    
-    const axiosSecure = UseAxiosSecure();
-    const onSubmit = async (data) => {
-        // console.log(data);
-        const userItem = {
-          displayName: user.displayName,
-          photoURL: user.photoURL
-        }
+  const { data: payments = [], } = useQuery({
+    queryKey: ['paymensts'],
+    queryFn: async () => {
+      const res = await axiosSecure.get('/payments');
+      return res.data
+    }
 
-        const contestRes = await axiosSecure.patch(`/users/${user._id}`, userItem);
-        console.log(contestRes.data);
-        if (contestRes.data.modifiedCount > 0) {
-        //   reset()
-        updateUserProfile(data.displayName, data.photoURL)
-          Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: `${data.displayName} is update to the contest.`,
-            showConfirmButton: false,
-            timer: 1500
-          });
-          navigate(location?.state ? location.state : '/login')
-        }
+  });
 
-        // createUser(data.email, data.password)
-            // .then(result => {
-            //     const loggedUser = result.user;
-            //     console.log(loggedUser);
-            //     updateUserProfile(data.name, data.photoURL)
-            //         .then(() => {
-            //             console.log('user profile info updated')
-            //             // reset();
-            //             Swal.fire({
-            //                 position: 'top-end',
-            //                 icon: 'success',
-            //                 title: 'User created successfully.',
-            //                 showConfirmButton: false,
-            //                 timer: 1500
-            //             });
+  // stats 
+  const { data: chartData = [] } = useQuery({
+    queryKey: ['order-stats'],
+    queryFn: async () => {
+        const res = await axiosSecure.get('/order-stats')
+        return res.data;
+    }
+});
 
-            //             logOut()
-            //             .then(() => {
-            //                 // Log out success
-            //             })
-            //             .catch(error => {
-            //                 console.error(error);
-            //             });
-            //         navigate(location?.state ? location.state : '/login')
-            //     })
-            //             // navigate('/login');
-
-            //         // })
-
-                   
-            //         .catch(error => console.log(error))
-            // })
-    };
-
-  
-   
-  
-  
-    return (
-      <div>
-        {/* <Helmet><title>Bistro Boss | SignUp</title></Helmet> */}
-        <div className="lg:w-1/2 w-full  my-10  font-bold mx-auto  py-10 px-12 bg-gradient-to-r from-purple-500 to-pink-500">
-        <h2 className="text-2xl text-center mb-4">Register</h2>
-        <p className="mb-4 text-lg text-center">
-                             Create your account.
-                         </p>
-            
-            
-              <form onSubmit={handleSubmit(onSubmit)} className="card-body">
-                <div className="form-control">
-                  <label className="label">
-                    <span className="label-text">Name</span>
-                  </label>
-                  <input type="text" defaultValue={user.displayName} placeholder="name" {...register("name", { required: true })} name="name" className="input input-bordered" />
-  
-                  {errors.name && <span className="text-red-600">Name is required</span>}
-                </div>
-                <div className="form-control">
-                  <label className="label">
-                    <span className="label-text">Photo URL</span>
-                  </label>
-                  <input type="text" defaultValue={user.photoURL} placeholder="Photo URL" {...register("photoURL", { required: true })} className="input input-bordered" />
-  
-                  {errors.photoURL && <span className="text-red-600">Photo url is required</span>}
-                </div>
-                {/* <div className="form-control">
-                  <label className="label">
-                    <span className="label-text">Email</span>
-                  </label>
-                  <input type="email" defaultValue={user.email} placeholder="email" {...register("email", { required: true })} name="email" className="input input-bordered" />
-                  {errors.email && <span className="text-red-600">email is required</span>}
-                 
-                </div> */}
-
-                {/* <div className="form-control">
-                  <label className="label">
-                    <span className="label-text">Password</span>
-                  </label>
-                  <input type="password" defaultValue={user.password} placeholder="password" name="password" {...register("password", {
-                    required: true,
-                    minLength: 6,
-                    maxLength: 20,
-                    pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/
-                  })} className="input input-bordered" />
-  
-                  {errors.password?.type === 'required' && <span className="text-red-600">password is required</span>}
-  
-                  {errors.password?.type === 'maxLength' && <span className="text-red-600">password must be less 20 character</span>}
-  
-                  {errors.password?.type === 'minLength' && <span className="text-red-600">password must be 6 character</span>}
-  
-                  {errors.password?.type === 'pattern' && <span className="text-red-600">password must have uppercase lowercase and one special character</span>}
-  
-                
-                </div> */}
-               
-
-                <div className="mt-5">
-                                 <button className="w-full bg-gradient-to-r  from-pink-500 to-purple-500 py-3 text-center rounded text-white">Update Profile</button>
-                                 <p className="text-center mt-3">Already Have an Account? <Link to="/login">
-                                     <span className="btn-link font-medium text-white">Login</span>
-                                 </Link>
-                                 </p>
-                             </div>
-              </form>
-              
-           
-            </div>
-          
-        </div>
-        
-    
-    );
+  // custom shape for the bar chart
+  const getPath = (x, y, width, height) => {
+    return `M${x},${y + height}C${x + width / 3},${y + height} ${x + width / 2},${y + height / 3}
+    ${x + width / 2}, ${y}
+    C${x + width / 2},${y + height / 3} ${x + (2 * width) / 3},${y + height} ${x + width}, ${y + height}
+    Z`;
   };
+  
+  const TriangleBar = (props) => {
+    const { fill, x, y, width, height } = props;
+  
+    return <path d={getPath(x, y, width, height)} stroke="none" fill={fill} />;
+  };
+
+  
+ console.log('pp', payments);
+ const myContest = allUsers.filter(item => item.email === user?.email)
+ console.log('total',myContest);
+  const onSubmit = async (data) => {
+    try {
+      await updateUserProfile(data.name, data.photoURL);
+      const userInfo = {
+        name: data.name,
+        email: user.email, // Assuming you're not allowing the user to update their email
+        role: 'user',
+        photo: data.photoURL,
+      };
+
+      const response = await axiosPublic.patch(`/users/${filterUser._id}`, userInfo);
+
+      if (response.data.updated) {
+        reset();
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'User updated successfully.',
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        // Redirect the user to a different page after a successful update
+        navigate('/dashboard'); // Change '/dashboard' to your desired route
+      } else {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Failed to update user.',
+        });
+      }
+    } catch (error) {
+      console.error('Error updating user profile:', error);
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Something went wrong. Please try again later.',
+      });
+    }
+  };
+
+  return (
+    <div>
+<div>
+  <SectionTitle heading={"Parcipitedt COntest"}></SectionTitle>
+  <h1 className="text-2xl justify-center items-center text-center text-teal-500">Total number of contest percipatating {myContest.length}</h1>
+          
+  <BarChart
+      width={500}
+      height={300}
+      data={chartData}
+      margin={{
+        top: 20,
+        right: 30,
+        left: 20,
+        bottom: 5,
+      }}
+    >
+      <CartesianGrid strokeDasharray="3 3" />
+      <XAxis dataKey="category" />
+      <YAxis />
+      <Bar dataKey="quantity" fill="#8884d8" shape={<TriangleBar />} label={{ position: 'top' }}>
+        {chartData.map((entry, index) => (
+          <Cell key={`cell-${index}`} fill={colors[index % 6]} />
+        ))}
+      </Bar>
+    </BarChart>
+</div>
+
+<SectionTitle heading={"Update"}></SectionTitle>
+      <div className="lg:w-1/2 w-full my-10 font-bold mx-auto py-10 px-12 bg-gradient-to-r from-teal-500 to-purple-500">
+        {/* <h2 className="text-2xl text-center mb-4">Register</h2> */}
+        <p className="mb-4 text-lg text-center">Update your account.</p>
+
+        <form onSubmit={handleSubmit(onSubmit)} className="card-body">
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text">Name</span>
+            </label>
+            <input
+              type="text"
+              defaultValue={user.displayName}
+              placeholder="name"
+              {...register('name', { required: true })}
+              name="name"
+              className="input input-bordered"
+            />
+            {errors.name && <span className="text-red-600">Name is required</span>}
+          </div>
+
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text">Photo URL</span>
+            </label>
+            <input
+              type="text"
+              defaultValue={user.photoURL}
+              placeholder="Photo URL"
+              {...register('photoURL', { required: true })}
+              className="input input-bordered"
+            />
+            {errors.photoURL && <span className="text-red-600">Photo URL is required</span>}
+          </div>
+
+          {/* Additional form controls can be added here */}
+
+          <div className="mt-5">
+            <button className="w-full bg-gradient-to-r from-pink-500 to-purple-500 py-3 text-center rounded text-white">
+              Update Profile
+            </button>
+            <p className="text-center mt-3">
+              Already Have an Account?{' '}
+              <Link to="/login">
+                <span className="btn-link font-medium text-white">Login</span>
+              </Link>
+            </p>
+          </div>
+        </form>
+
+
+      </div>
+    </div>
+  );
+};
 
 export default MyProfile;

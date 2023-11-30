@@ -4,6 +4,7 @@ import useAxiosSecure from "../../../Hook/UseAxiosSecure";
 import Swal from "sweetalert2";
 import { useContext } from "react";
 import { AuthContext } from "../../../providers/AuthProvider";
+import moment from "moment/moment";
 // import useAxiosPublic from "../../../Hook/useAxiosPublic/useAxiosPublic";
 
 const AddContest = () => {
@@ -15,14 +16,10 @@ const AddContest = () => {
   const onSubmit = async (data) => {
     console.log(data);
 
-
-
-
-
-
-    const contestItem = {
+const contestItem = {
       name: user.displayName,
       email: user.email,
+      photo: user.photoURL,
       contest_name: data.contest_name,
       img: data.img,
       tag: data.tag,
@@ -31,8 +28,10 @@ const AddContest = () => {
       instruction: data.instruction,
       prize: data.prize,
       deadline: data.deadline,
-      status: 'pending'
-    }
+      status: 'pending',
+      time: moment().utcOffset('+06:00').format('YYYY-MM-DD HH:mm:ss'),
+    };
+    
 
 
 

@@ -162,10 +162,7 @@ const SubmittedContest = () => {
 
 
                     </table>
-                   {/* <div className="text-center justify-center items-center my-7">
-                     <Link to='/dashboard/submittedContest'><button className="btn bg-teal-500">Submission</button></Link>
-                     
-                     </div> */}
+                 
                 </div>
             </div>
         </div>

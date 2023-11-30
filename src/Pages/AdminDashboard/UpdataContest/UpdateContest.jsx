@@ -5,7 +5,7 @@ import UseAxiosSecure from "../../../Hook/UseAxiosSecure";
 import Swal from "sweetalert2";
 import { useContext } from "react";
 import { AuthContext } from "../../../providers/AuthProvider";
-import { Helmet } from "react-helmet-async";
+// import { Helmet } from "react-helmet-async";
 
 
 const UpdateContest = () => {
@@ -53,7 +53,7 @@ const UpdateContest = () => {
 
     return (
         <div>
-          <Helmet><title>Contest | Update Contest</title></Helmet>
+          {/* <Helmet><title>Contest | Update Contest</title></Helmet> */}
         <SectionTitle heading={'Update Contest'}></SectionTitle>
     
         <div className="mx-5">

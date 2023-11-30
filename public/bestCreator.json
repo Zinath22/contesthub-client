@@ -1,0 +1,27 @@
+[
+    {
+      "name": "Emily Johnson",
+      "description": "An aspiring digital artist with a passion for vibrant and surreal creations.",
+      "contribution": "Submitted a stunning digital painting titled 'Ethereal Dreams.'",
+      "img": "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+      "name": "Alex Rodriguez",
+      "description": "A talented photographer capturing the beauty of nature through the lens.",
+      "contribution": "Entered a breathtaking photograph titled 'Serene Sunset.'",
+      "img": "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+      "name": "Samantha Lee",
+      "description": "A creative writer weaving captivating tales of fantasy and mystery.",
+      "contribution": "Shared an enchanting short story titled 'Whispers of the Enchanted Forest.'",
+      "img": "https://images.unsplash.com/photo-1528892952291-009c663ce843?q=80&w=1544&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+      "name": "Michael Chen",
+      "description": "An innovative app developer with a flair for user-friendly designs.",
+      "contribution": "Submitted a cutting-edge mobile app named 'Mindful Moments' promoting mental well-being.",
+      "img": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1376&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    }
+  ]
+  

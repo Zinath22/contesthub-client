@@ -12,8 +12,7 @@ const Login = () => {
     const [error, setError] = useState("");
     const location = useLocation();
     const navigate = useNavigate();
-    const axiosPublic = useAxiosPublic();
-
+    const axiosPublic = useAxiosPublic()
     const handleLogin = (e) => {
         e.preventDefault();
         const email = e.target.email.value;

@@ -4,7 +4,7 @@ import 'react-tabs/style/react-tabs.css';
 // import { motion } from "framer-motion";
 // import { AiOutlineArrowRight } from 'react-icons/ai';
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 import UseAxiosSecure from '../../Hook/UseAxiosSecure';
 import { useQuery } from '@tanstack/react-query';
 // import { Helmet } from 'react-helmet-async';
@@ -15,14 +15,7 @@ const Jobs = () => {
   // const [artical, setArtical] = useState([]);
   // const [gaming, setGaming] = useState([]);
   const axiosSecure = UseAxiosSecure();
-  const { data: contest = [], } = useQuery({
-    queryKey: ['manageContest'],
-    queryFn: async () => {
-      const res = await axiosSecure.get('/contest');
-      return res.data
-    }
 
-  });
   console.log(contest);
   const acceptedContest = contest.filter(item => item.status === "accepted")
   console.log('áccept', acceptedContest);

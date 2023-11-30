@@ -132,7 +132,7 @@ const ManageContest = () => {
                                     <td>
                                         <div className="flex items-center gap-3">
                                             <div className="avatar">
-{item.contest_name}
+                                  {item.contest_name}
                                             </div>
                                         </div>
                                     </td>

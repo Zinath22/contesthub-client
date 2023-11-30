@@ -38,22 +38,7 @@ const CreatedContest = () => {
     const filterContest = contest.filter((item) => item.email === user?.email);
     console.log(12, filterContest);
 
-    // const handleMakeContest = item => {
-    //     axiosSecure.patch(`/contest/creator/${item._id}`)
-    //         .then(res => {
-    //             console.log(res.data)
-    //             if (res.data.modifiedCount > 0) {
-    //                 refetch();
-    //                 Swal.fire({
-    //                     position: "top-end",
-    //                     icon: "success",
-    //                     title: `${item.tag} is an Admin Now`,
-    //                     showConfirmButton: false,
-    //                     timer: 1500
-    //                 })
-    //             }
-    //         })
-    // }
+   
 
 
     const handleDeleteItem = (item) => {
@@ -184,10 +169,7 @@ const CreatedContest = () => {
 
 
                     </table>
-                    {/* <div className="text-center justify-center items-center my-7">
-                     <Link to='/dashboard/submittedContest'><button className="btn bg-teal-500">Submission</button></Link>
-                     
-                     </div> */}
+                   
                 </div>
             </div>
         </div>

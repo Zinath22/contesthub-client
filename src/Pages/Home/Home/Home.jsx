@@ -4,6 +4,7 @@ import Banner from "../Banner/Banner";
 import GrandPrize from "../GrandPrize/GrandPrize";
 import PopularContest from "../PopularContest/PopularContest";
 import { AuthContext } from "../../../providers/AuthProvider";
+import AllWinner from "../AllWinner/AllWinner";
 
 
 const Home = () => {
@@ -14,8 +15,10 @@ const Home = () => {
         <div>
             <Banner ></Banner>
             <PopularContest></PopularContest>
-            <GrandPrize></GrandPrize>
+            
             <PageCreator></PageCreator>
+            <AllWinner></AllWinner>
+            <GrandPrize></GrandPrize>
         </div>
     );
 };
