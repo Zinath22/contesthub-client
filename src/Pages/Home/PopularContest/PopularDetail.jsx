@@ -1,33 +1,12 @@
-
-// import { useEffect, useState } from "react";
-// import { Helmet } from "react-helmet-async";
 import { Link, useLoaderData } from "react-router-dom";
-import CountDown from "../../components/CountDown";
+import CountDown from "../../../components/CountDown";
 
 
-const ContestDetails = () => {
-    // const [details, setDetails] = useState([]);
-    // console.log(details);
-   
+const PopularDetail = () => {
     const details = useLoaderData();
-    console.log(details);
-    // const { id } = useParams()
-   
-
-    // const { _id } = detail
-    // console.log(details);
-
-    // useEffect(() => {
-    //     fetch(`https://contesthub-server.vercel.app/contest/${_id}`)
-    //     .then(res => res.json())
-    //     .then(data => setDetails(data))
-    // }, [])
-
-
     return (
-     <div>
-    
-         <div className="card  my-7 card-compact mx-auto w-[80%] bg-base-100 shadow-xl">
+        <div>
+               <div className="card  my-7 card-compact mx-auto w-[80%] bg-base-100 shadow-xl">
         <img className="" src={details.img} alt="Shoes" />
         <div className="card-body">
           <h2 className="card-title">{details.contest_name}</h2>
@@ -47,8 +26,8 @@ const ContestDetails = () => {
           </div>
         </div>
       </div>
-     </div>
+        </div>
     );
 };
 
-export default ContestDetails;
+export default PopularDetail;

@@ -24,7 +24,7 @@ const Dashboard = () => {
                     {
                         isAdmin &&
                          <>
-                         <>Admin</>
+                         <>Admin DashBoard</>
                             <li><NavLink to="manageUser">
                                 <FaUsers className="text-2xl text-white"></FaUsers>
                                 Manage User</NavLink></li>
@@ -40,12 +40,12 @@ const Dashboard = () => {
                     isCreator &&
 
                         <>
-                        <>Creator</>
+                        <>Creator DashBoard</>
                             <li><NavLink to="addContest">add Contest</NavLink></li>
                             <li><NavLink to="createdContest"> My Created Contest</NavLink></li>
                             {/* <li><NavLink to="submittedContest">Submitted Contest</NavLink></li> */}
                         </>
-                    }      :
+                    }      
 
                     {/* divider  */}
                    {

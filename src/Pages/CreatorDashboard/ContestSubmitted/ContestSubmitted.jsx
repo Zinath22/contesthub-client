@@ -40,7 +40,7 @@ const ContestSubmitted = () => {
                 Swal.fire({
                     position: "top-end",
                     icon: "success",
-                    title: `${submission.email} is an Admin Now`,
+                    title: `${submission.email} is an Winner Now`,
                     showConfirmButton: false,
                     timer: 1500
                 })
@@ -62,11 +62,11 @@ const ContestSubmitted = () => {
                                 <th>
                                     #
                                 </th>
-                                <th>Image</th>
-                                <th>Name</th>
+                                {/* <th>Image</th> */}
+                                <th>Contest Name</th>
                                 <th>Email</th>
                                 <th>Select</th>
-                                {/* <th>Delete</th> */}
+                                <th>Select</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -75,17 +75,9 @@ const ContestSubmitted = () => {
                                     <td>
                                         {index + 1}
                                     </td>
+                                    
                                     <td>
-                                        <div className="flex items-center gap-3">
-                                            <div className="avatar">
-                                                <div className="mask mask-squircle w-12 h-12">
-                                                    <img src={submission.imageURL} alt="Avatar Tailwind CSS Component" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        {submission.name}
+                                        {submission.tag}
                                     </td>
                                     <td>
                                         {submission.email}

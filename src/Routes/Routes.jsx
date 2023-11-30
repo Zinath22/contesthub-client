@@ -24,12 +24,16 @@ import ContestSubmitted from "../Pages/CreatorDashboard/ContestSubmitted/Contest
 import AdminRoute from "./AdminRoute";
 import ManageUsers from "../Pages/AdminDashboard/ManageUser/ManageUser";
 import SubmittedContest from "../Pages/SubmittedContest";
+import CreatorRoute from "./CreatorRoute";
+import PopularDetail from "../Pages/Home/PopularContest/PopularDetail";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 
 
  export const router = createBrowserRouter([
     {
       path: "/",
       element: <MainLayout></MainLayout>,
+      errorElement: <ErrorPage></ErrorPage>,
       children: [
         {
             path: '/',
@@ -47,6 +51,12 @@ import SubmittedContest from "../Pages/SubmittedContest";
         {
           path: '/contestDetails/:id',
           element: <PrivateRoute><ContestDetails></ContestDetails></PrivateRoute>,
+          // loader: ({params}) => fetch(`https://contesthub-server.vercel.app/contest/${params.id}`)
+          loader: ({params}) => fetch(`https://contesthub-server.vercel.app/contest/${params.id}`)
+        },
+        {
+          path: '/popularDetails/:id',
+          element: <PrivateRoute><PopularDetail></PopularDetail></PrivateRoute>,
           // loader: ({params}) => fetch(`https://contesthub-server.vercel.app/contest/${params.id}`)
           loader: ({params}) => fetch(`https://contesthub-server.vercel.app/contest/${params.id}`)
         },
@@ -109,17 +119,17 @@ import SubmittedContest from "../Pages/SubmittedContest";
         },
         {
           path: 'createdContest',
-          element: <CreatedContest></CreatedContest>
+          element:<CreatorRoute> <CreatedContest></CreatedContest></CreatorRoute>
         },
         {
           path: 'submittedContest',
-          element: <SubmittedContest></SubmittedContest> ,
+          element: <CreatorRoute><SubmittedContest></SubmittedContest></CreatorRoute> ,
           
         },
         {
           path: 'submittedContest/:id',
           element: <ContestSubmitted></ContestSubmitted> ,
-          loader: ({params}) => fetch(`http://localhost:5000/payments/${params.id}`)
+          loader: ({params}) => fetch(`https://contesthub-server.vercel.app/payments/${params.id}`)
         }
       ]
     }

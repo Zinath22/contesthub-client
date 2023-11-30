@@ -7,10 +7,22 @@ import Swal from "sweetalert2";
 
 import { useQuery } from "@tanstack/react-query";
 import UseAxiosSecure from "../../../Hook/UseAxiosSecure";
+// import { useState } from "react";
 
 
 const ManageUsers = () => {
   const axiosSecure = UseAxiosSecure();
+  // const [count, setCount] = useState(0);
+  // const [itemsPerPage, setItemsPerPage] = useState(10);
+  
+  // const numberOfPages = Math.ceil(count / itemsPerPage);
+  // const pages = [...Array(numberOfPages).keys()];
+  // const pages = []
+  // for(let i = 0; i < numberOfPages; i++){
+  //   pages.push(i);
+  // }
+  // console.log(pages);
+
 
   const { data: users = [], refetch } = useQuery({
     queryKey: ['users'],
@@ -180,6 +192,7 @@ const ManageUsers = () => {
           </tbody>
         </table>
       </div>
+      <div className="pagination">Pagination</div>
     </div>
   );
 };

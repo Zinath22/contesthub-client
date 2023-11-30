@@ -9,10 +9,11 @@ import Swal from "sweetalert2";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../Hook/UseAxiosSecure";
 import SectionTitle from "../../../components/SectionTitle/SectionTitle";
-import { Bar, BarChart, CartesianGrid, Cell, XAxis, YAxis } from "recharts";
+import Chart from "./Chart";
 
 
-const colors = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', 'red', 'pink'];
+
+
 // const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
 
 const MyProfile = () => {
@@ -43,27 +44,17 @@ const MyProfile = () => {
   });
 
   // stats 
-  const { data: chartData = [] } = useQuery({
-    queryKey: ['order-stats'],
-    queryFn: async () => {
-        const res = await axiosSecure.get('/order-stats')
-        return res.data;
-    }
-});
+//   const { data: chartData = [] } = useQuery({
+//     queryKey: ['order-stats'],
+//     queryFn: async () => {
+//         const res = await axiosSecure.get('/order-stats')
+//         return res.data;
+//     }
+// });
 
-  // custom shape for the bar chart
-  const getPath = (x, y, width, height) => {
-    return `M${x},${y + height}C${x + width / 3},${y + height} ${x + width / 2},${y + height / 3}
-    ${x + width / 2}, ${y}
-    C${x + width / 2},${y + height / 3} ${x + (2 * width) / 3},${y + height} ${x + width}, ${y + height}
-    Z`;
-  };
+
   
-  const TriangleBar = (props) => {
-    const { fill, x, y, width, height } = props;
   
-    return <path d={getPath(x, y, width, height)} stroke="none" fill={fill} />;
-  };
 
   
  console.log('pp', payments);
@@ -115,26 +106,7 @@ const MyProfile = () => {
   <SectionTitle heading={"Parcipitedt COntest"}></SectionTitle>
   <h1 className="text-2xl justify-center items-center text-center text-teal-500">Total number of contest percipatating {myContest.length}</h1>
           
-  <BarChart
-      width={500}
-      height={300}
-      data={chartData}
-      margin={{
-        top: 20,
-        right: 30,
-        left: 20,
-        bottom: 5,
-      }}
-    >
-      <CartesianGrid strokeDasharray="3 3" />
-      <XAxis dataKey="category" />
-      <YAxis />
-      <Bar dataKey="quantity" fill="#8884d8" shape={<TriangleBar />} label={{ position: 'top' }}>
-        {chartData.map((entry, index) => (
-          <Cell key={`cell-${index}`} fill={colors[index % 6]} />
-        ))}
-      </Bar>
-    </BarChart>
+ <Chart></Chart>
 </div>
 
 <SectionTitle heading={"Update"}></SectionTitle>

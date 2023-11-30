@@ -41,7 +41,7 @@ const [showFullDescription, setShowFullDescription] = useState(false);
     
 
     <div className="card-actions">
-     <Link to={`/contestDetails/${_id}`}> <button className="btn text-white bg-teal-600  btn-outline border-0 border-b-4 mt-4">Details</button></Link>
+     <Link to={`/popularDetails/${_id}`}> <button className="btn text-white bg-teal-600  btn-outline border-0 border-b-4 mt-4">Details</button></Link>
     </div>
   </div>
 </div>
