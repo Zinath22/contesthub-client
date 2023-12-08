@@ -36,6 +36,7 @@ const MyWinning = () => {
     console.log('asdfgh', contest);
 
     const filterContest = contest.filter((submission) => submission.email === user?.email);
+    const filterWinningContest = filterContest.filter((filterContest) => filterContest.winner === true);
     console.log(12, filterContest);
 
 
@@ -76,7 +77,7 @@ const MyWinning = () => {
 
             <div className="  grid gap-10 grid-cols-3 md:grid-cols-1 lg:grid-cols-3">
                {
-                filterContest.map((submission) => <div key={submission._id}>
+                filterWinningContest.map((submission) => <div key={submission._id}>
                                 <div className="card  bg-base-100 shadow-xl image-full">
   <figure><img src="https://img.freepik.com/premium-vector/realistic-golden-trophy-with-gold-laurel-wreath-ribbon_48799-147.jpg" alt="Shoes" /></figure>
   <div className="card-body text-teal-400">

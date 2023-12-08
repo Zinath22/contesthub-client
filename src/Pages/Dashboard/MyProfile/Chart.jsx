@@ -51,7 +51,7 @@ const Chart = ({ total, win }) => {
 
 Chart.propTypes = {
   total: PropTypes.number.isRequired,
-  yes: PropTypes.number.isRequired,
+  win: PropTypes.number.isRequired,
 };
 
 export default Chart;

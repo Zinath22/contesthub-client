@@ -116,6 +116,7 @@ const ManageContest = () => {
                                 </th>
 
                                 <th>Contest Type</th>
+                                <th>Creator</th>
                                 <th>Tag</th>
                                 <th>Prize</th>
                                 <th>Approve</th>
@@ -136,6 +137,7 @@ const ManageContest = () => {
                                             </div>
                                         </div>
                                     </td>
+                                    <td>{item.email}</td>
                                     <td>
                                         {item.tag}
                                     </td>

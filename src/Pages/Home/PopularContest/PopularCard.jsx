@@ -18,11 +18,11 @@ const [showFullDescription, setShowFullDescription] = useState(false);
     return (
         <div>
             
-            <div className="card card-compact  w-96 my-7 bg-gray-200 shadow-xl">
+            <div className="card card-compact   my-7 bg-gray-200 shadow-xl">
   <figure><img className="w-full h-[180px]" src={img} alt="" /></figure>
   <div className="card-body">
-    <h2 className="card-title text-teal-600" data-aos='flip-left'>{contest_name}</h2>
-    <h2 className="card-title text-teal-600" data-aos='flip-left'>{participants_count}</h2>
+    <h2 className="card-title text-teal-600" data-aos='flip-left'>Contest Name: {contest_name}</h2>
+    <h2 className="card-title text-teal-600" data-aos='flip-left'>Participants: {participants_count}</h2>
     
 
 <p>
@@ -40,9 +40,9 @@ const [showFullDescription, setShowFullDescription] = useState(false);
     </p>
     
 
-    <div className="card-actions">
+    {/* <div className="card-actions">
      <Link to={`/popularDetails/${_id}`}> <button className="btn text-white bg-teal-600  btn-outline border-0 border-b-4 mt-4">Details</button></Link>
-    </div>
+    </div> */}
   </div>
 </div>
         </div>

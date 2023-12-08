@@ -30,8 +30,8 @@ const MyProfile = () => {
     }
 
   });
-//  console.log('uu', allUsers);
- const filterUser = allUsers.find(item => item.email === user?.email)
+  //  console.log('uu', allUsers);
+  const filterUser = allUsers.find(item => item.email === user?.email)
 
 
   const { data: payments = [], } = useQuery({
@@ -44,22 +44,33 @@ const MyProfile = () => {
   });
 
   // stats 
-//   const { data: chartData = [] } = useQuery({
-//     queryKey: ['order-stats'],
-//     queryFn: async () => {
-//         const res = await axiosSecure.get('/order-stats')
-//         return res.data;
-//     }
-// });
+  //   const { data: chartData = [] } = useQuery({
+  //     queryKey: ['order-stats'],
+  //     queryFn: async () => {
+  //         const res = await axiosSecure.get('/order-stats')
+  //         return res.data;
+  //     }
+  // });
 
 
-  
-  
 
-  
- console.log('pp', payments);
- const myContest = allUsers.filter(item => item.email === user?.email)
- console.log('total',myContest);
+
+
+
+  console.log('pp', payments);
+  const myContest = allUsers.filter(item => item.email === user?.email)
+
+  const myTotalContest = payments.filter(item => item.email === user?.email)
+  const myContestWin = myTotalContest.filter(item => item.winner === true)
+  // console.log(myContestWin);
+ 
+  const Total = myTotalContest.length
+  const totalWin = myContestWin.length
+  const lose = Total - totalWin
+  console.log('total', myTotalContest, 'win', myContestWin, "winnnnnnnnnnnnn", Total, lose);
+  const winRatio = myContestWin.length / myTotalContest.length
+  const winPercentage =( winRatio * 100).toFixed(2)
+
   const onSubmit = async (data) => {
     try {
       await updateUserProfile(data.name, data.photoURL);
@@ -102,14 +113,21 @@ const MyProfile = () => {
 
   return (
     <div>
-<div>
-  <SectionTitle heading={"Parcipitedt COntest"}></SectionTitle>
-  <h1 className="text-2xl justify-center items-center text-center text-teal-500">Total number of contest percipatating {myContest.length}</h1>
-          
- <Chart></Chart>
-</div>
+      <div>
+        <SectionTitle heading={"Parcipitedt COntest"}></SectionTitle>
+        <h1 className="text-2xl justify-center items-center text-center text-teal-500">Total number of contest percipatating {myTotalContest.length}</h1>
+        <p>Win : {totalWin}</p>
+        <p>Win Rate : {winPercentage}%</p>
+        <Chart
+        
+        total={lose}
+        win={Total}>
 
-<SectionTitle heading={"Update"}></SectionTitle>
+          
+        </Chart>
+      </div>
+
+      <SectionTitle heading={"Update"}></SectionTitle>
       <div className="lg:w-1/2 w-full my-10 font-bold mx-auto py-10 px-12 bg-gradient-to-r from-teal-500 to-purple-500">
         {/* <h2 className="text-2xl text-center mb-4">Register</h2> */}
         <p className="mb-4 text-lg text-center">Update your account.</p>

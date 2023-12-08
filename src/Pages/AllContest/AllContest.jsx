@@ -108,8 +108,8 @@ const Jobs = () => {
                         <div className="card card-compact  my-5 bg-sky-200 shadow-xl">
                           <figure><img className="w-full h-[180px]" src={contest.img} alt="" /></figure>
                           <div className="card-body">
-                            <h2 className="card-title text-teal-600">{contest.contest_name}</h2>
-                            <h2 className="card-title text-teal-600">{contest.participants_count}</h2>
+                            <h2 className="card-title text-teal-600">Contest Name{contest.contest_name}</h2>
+                            <h2 className="card-title text-teal-600">Participants:{contest.participants_count}</h2>
                             {/* <p className="text-teal-600">{description}</p> */}
                             <p>
                               {showFullDescription ? (

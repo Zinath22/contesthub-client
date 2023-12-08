@@ -26,8 +26,8 @@ const RegContest = () => {
         <div key={items._id} className=" shadow-xl rounded-lg p-4" >
           {/* <img src={items?.myContest.imgyyy} alt="" /> */}
           <h1 className="text-center py-7">Added By: {user.email}</h1>
-          <h1 className="text-teal-500 text-center">Contest Name: {items?.myContest?.contest_name}</h1>
-          <h1 className="text-teal-500 text-center">Prize: {items?.myContest?.prize}</h1>
+          <h1 className="text-teal-500 text-center">Contest Name: {items.tag}</h1>
+          <h1 className="text-teal-500 text-center">Prize: {items.prize}</h1>
         </div>
       );
     })}
