@@ -1,4 +1,6 @@
-# Live Link :
+# Live Link : https://contest-website-4b439.web.app
+Admin email: admin@a.com
+Admin password: 12345aA@
 
 # ContestHub - Project Contest Creation Platform
 
