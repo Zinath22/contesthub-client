@@ -55,7 +55,7 @@ Admin password: 12345aA@
 - Integration of react-hook-form in all form pages.
 - Use of toast for CRUD operations instead of alerts.
 - JWT implementation for login authentication and token storage.
-- Pagination integrated for table and card views.
+  
 
 
 
