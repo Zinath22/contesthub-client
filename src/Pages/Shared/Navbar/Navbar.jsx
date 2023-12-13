@@ -10,7 +10,7 @@ const Navbar = () => {
   
 
   const handleSignOut = () => {
-    logOut()
+     logOut()
       .then(() => {
 
       })
