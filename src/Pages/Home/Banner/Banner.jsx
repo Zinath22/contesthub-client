@@ -4,10 +4,9 @@
 // import { useState } from "react";
 // import axios from 'axios';
 
-import img1 from "../../../assets/istockphoto-1125684481-612x612.jpg"
-import img2 from "../../../assets/download.png"
-import img3 from "../../../assets/download (1).jpg"
-import img4 from "../../../assets/istockphoto-1347499538-612x612.jpg"
+
+
+
 // import { useState } from "react";
 
 const Banner = () => {
@@ -34,9 +33,9 @@ const Banner = () => {
       <div>
 
 
-      <div className="carousel max-w-screen-xl mx-auto">
-        <div id="slide1" className="carousel-item relative w-full">
-          <img src={img1} className="w-full rounded-lg" />
+      <div className="carousel rounded-none max-w-screen-xl mx-auto">
+        <div id="slide1" className="carousel-item rounded-none relative w-full">
+          <img src="https://images.unsplash.com/photo-1633545499432-285bae66cbf8?q=80&w=1472&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&fbclid=IwAR0E-oShhpUGIpcr-5q6FioROMOuLeg4sJMFkNHEJvcQzx9qW-CGxu1K9Kk" className="w-full " />
           
 
           <div className="absolute  text-center items-center  flex justify-center h-full  rounded-lg w-full  ">
@@ -55,7 +54,7 @@ const Banner = () => {
          
         </div>
         <div id="slide2" className="carousel-item relative w-full">
-          <img src={img2} className="w-full rounded-lg" />
+          <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&fbclid=IwAR2pNUAwgF7Fh9t8RHiF2xpRUwGC24uWi5Kq4nWWQfCqdM1hcUtd1o4lg-w" className="w-full " />
 
           <div className="absolute  text-center items-center  flex justify-center h-full  rounded-lg w-full  ">
             <div className='text-white '>
@@ -73,7 +72,7 @@ const Banner = () => {
      
         </div>
         <div id="slide3" className="carousel-item relative w-full">
-          <img src={img3} className="w-full rounded-lg" />
+          <img src="https://images.unsplash.com/photo-1636489875239-10ada41d8e33?q=80&w=1472&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&fbclid=IwAR0E-oShhpUGIpcr-5q6FioROMOuLeg4sJMFkNHEJvcQzx9qW-CGxu1K9Kk" className="w-full " />
 
           <div className="absolute  text-center items-center  flex justify-center h-full  rounded-lg w-full    ">
             <div className='text-white '>
@@ -90,7 +89,7 @@ const Banner = () => {
           </div>
         </div>
         <div id="slide4" className="carousel-item relative w-full">
-          <img src={img4} className="w-full rounded-lg" />
+          <img src="https://images.unsplash.com/photo-1598550487031-0898b4852123?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&fbclid=IwAR2e_0o_tc6be6z1BFT_wVaUIpJwKEK5Kv_JfUjfyyxMTpikqDI23KRW5GE" className="w-full " />
 
           <div className="absolute  text-center items-center  flex justify-center h-full  rounded-lg w-full  ">
             <div className='text-white '>

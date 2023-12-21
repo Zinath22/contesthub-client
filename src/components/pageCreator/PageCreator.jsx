@@ -11,7 +11,7 @@ const PageCreator = () => {
     const axiosPublic = useAxiosPublic();
     
 
-    useEffect(() => {
+     useEffect(() => {
         const fetchUser = async () => {
             try {
                 const response = await axiosPublic.get(`/bestcreator`);

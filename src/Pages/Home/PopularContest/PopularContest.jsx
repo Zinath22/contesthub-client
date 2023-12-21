@@ -14,9 +14,9 @@ const PopularContest = () => {
     }, [])
 
     return (
-        <div className="">
+        <div className="w-[80%] mx-auto">
             <SectionTitle heading={'Popular Contest'}></SectionTitle>
-            <div className="my-7 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="my-7 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {
                     contest.map(item => <PopularCard 
                         key={item._id}

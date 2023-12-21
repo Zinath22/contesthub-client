@@ -41,7 +41,7 @@ const AllWinner = () => {
             <div className="  grid gap-10 grid-cols-3 md:grid-cols-1 lg:grid-cols-3 " data-aos="flip-left">
                {
                 filterContest.map((submission) => <div key={submission._id}>
-     <Marquee pauseOnHover={true} speed={150}>
+     <Marquee pauseOnHover={true} speed={100}>
      <div className="relative flex flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md" >
       <div className="relative mx-4 mt-4 h-80 overflow-hidden rounded-xl bg-white bg-clip-border text-gray-700 shadow-lg">
         <img className="w-[320px] h-[320px] mx-auto  " src="https://img.freepik.com/premium-vector/realistic-golden-trophy-with-gold-laurel-wreath-ribbon_48799-147.jpg" />

@@ -3,7 +3,7 @@
     
     "contestId":"642c155b2c4774f05c36eea6",
     "contest_name": "Business",
-    "img": "https://i.ibb.co/vBrZkwt/images-10.jpg",
+    "img": "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&fbclid=IwAR2b09KCukvRuk0704QS_T3iSOu2ujlSHUvMx2anT0Nzk4WcCUzGEYYIHtY",
     "participants_count": 130,
     "description": "Business competition is the contest between organizations that provide similar products or services or that target the same audience of consumers. Businesses compete to convert and retain customers, increase revenue and gain more market share",
     "prize": "Cash prize of $500 and a featured exhibition",
@@ -16,7 +16,7 @@
   {
     "contestId":"642c155b2c4774f05c36eea6",
     "contest_name": "Gaming",
-    "img": "https://i.ibb.co/nf0vdj4/images-2.jpg",
+    "img": "https://images.unsplash.com/photo-1612151388040-9ec75d2de8c7?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&fbclid=IwAR2y3Yd-7MSVcEuk2FuYGJFlEprVsDdj9BoRFnA0twOIk2TTFdodKGHxej4",
     "participants_count": 150,
     "description": "Playing games help us grow, think, and find solutions to problems. The Gaming Contest calls for all entries about playing games and projects that pay tribute to your favorite games. Video game guides, easter egg tips, tabletop games, and tribute projects — if it’s inspired by a game you love to play, it's eligible for this contest!.",
     "prize": "Apple iPad Mini, Canon Powershot camera",
@@ -29,7 +29,7 @@
   {
     "contestId":"642c155b2c4774f05c36eea6",
     "contest_name": "Medical",
-    "img": "https://i.ibb.co/WDymKYC/images-4.jpg",
+    "img": "https://images.unsplash.com/photo-1526256262350-7da7584cf5eb?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&fbclid=IwAR2Cba3esCo0_78Zqjfzcc8oPqATI10p_7Du8u8xGyPV7Nga_tPFh4CbXT8",
     "participants_count": 120,
     "description": "Are you in high school and looking to participate in a medical competition? Check out this curated list below of opportunities from across the country!It is recognized by the U.S. Department of Education and the Department of Health and Human Services, as well as several federal and state agencies. HOSA provides a variety of competitive events that are designed to improve student knowledge and skills.",
     "prize": "Cash prize of $500 and a featured exhibition",
@@ -42,7 +42,7 @@
   {
     "contestId":"642c155b2c4774f05c36eea6",
     "contest_name": "Artical",
-    "img": "https://i.ibb.co/rxFg2Rv/images-3.jpg",
+    "img": "https://images.unsplash.com/photo-1551643556-0e32e30fc8e9?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&fbclid=IwAR08LVj2Ed68HhlrPv0XMh9Nq5gBQXdN9FepVetL64oFGk7rXpTQJ2NWxNs",
     "participants_count": 100,
     "description": "If you've been writing for any time at all, you've probably heard about writing competitions. These are events created by all sorts of publications, universities, publishers, writer groups, and other miscellaneous associations.The idea behind the competitions is to give writers the opportunity to have their work critiqued and compared to their peers while they hope to win a prize. In addition, the submissions can be used to create popular online content for the organizers who, in turn, may publish an anthology of all the best submissions",
     "prize": "Professional camera equipment and a photography workshop",
@@ -75,7 +75,7 @@
     "winner_name": "Christopher Brown",
     "winner_img": "christopher_brown.jpg",
     "deadline": "2023-12-20",
-    "category": "popular",
+    "category": "",
     "tag": "artical"
 
 

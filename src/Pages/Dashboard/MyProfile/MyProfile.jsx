@@ -114,10 +114,10 @@ const MyProfile = () => {
   return (
     <div>
       <div>
-        <SectionTitle heading={"Parcipitedt COntest"}></SectionTitle>
+        <SectionTitle heading={"Participent Contest"}></SectionTitle>
         <h1 className="text-2xl justify-center items-center text-center text-teal-500">Total number of contest percipatating {myTotalContest.length}</h1>
-        <p>Win : {totalWin}</p>
-        <p>Win Rate : {winPercentage}%</p>
+        <p className="justify-center text-center items-center">Win : {totalWin}</p>
+        <p className="justify-center text-center items-center">Win Rate : {winPercentage}%</p>
         <Chart
         
         total={lose}
